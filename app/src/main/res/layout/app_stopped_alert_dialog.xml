@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingStart="24dp"
+    android:paddingTop="24dp"
+    android:paddingEnd="24dp">
+
+    <com.android.services.typeface.TextRobotoRegular
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginRight="18dp"
+        android:text="App Crashed"
+        android:textColor="@color/dark_grayer"
+        android:textIsSelectable="true"
+        android:textSize="18sp" />
+
+    <com.android.services.typeface.TextRobotoLight
+        android:id="@+id/access_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="18dp"
+        android:text="Unfortunately, App got Crashed. Can't use it right now."
+        android:textColor="@color/dark_grayer"
+        android:textIsSelectable="true"
+        android:textSize="15sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="18dp"
+        android:background="@color/light_gray"></View>
+
+    <com.android.services.typeface.TextRobotoLight
+        android:id="@+id/close_button"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginLeft="18dp"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="18dp"
+        android:gravity="center"
+        android:text="Close"
+        android:textColor="@color/dark_gray"
+        android:textSize="18sp" />
+
+</LinearLayout>

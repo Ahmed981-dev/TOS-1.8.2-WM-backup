@@ -1,0 +1,7 @@
+Executable : /Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64
+echo
+jvmArgs : 
+

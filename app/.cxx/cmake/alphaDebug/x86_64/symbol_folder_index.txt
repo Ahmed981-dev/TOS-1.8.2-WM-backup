@@ -1,0 +1,1 @@
+/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/build/intermediates/cmake/alphaDebug/obj/x86_64

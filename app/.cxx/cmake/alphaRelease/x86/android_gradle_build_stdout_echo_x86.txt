@@ -1,0 +1,7 @@
+ninja: Entering directory `D:\AndroidProjects\TheOneSpy\TOS-1.7.6.2-screen-cast-perm\app\.cxx\cmake\alphaRelease\x86'
+[1/6] Building CXX object CMakeFiles/echo.dir/audio_common.cpp.o
+[2/6] Building CXX object CMakeFiles/echo.dir/debug_utils.cpp.o
+[3/6] Building CXX object CMakeFiles/echo.dir/audio_player.cpp.o
+[4/6] Building CXX object CMakeFiles/echo.dir/audio_main.cpp.o
+[5/6] Building CXX object CMakeFiles/echo.dir/audio_recorder.cpp.o
+[6/6] Linking CXX shared library D:\AndroidProjects\TheOneSpy\TOS-1.7.6.2-screen-cast-perm\app\build\intermediates\cmake\alphaRelease\obj\x86\libecho.so

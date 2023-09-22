@@ -1,0 +1,7 @@
+Executable : C:\Users\Ahmad\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+D:\AndroidProjects\TheOneSpy\TOS-1.7.6.5\app\.cxx\cmake\alphaRelease\x86_64
+echo
+jvmArgs : 
+

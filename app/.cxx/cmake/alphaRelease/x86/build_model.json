@@ -1,0 +1,220 @@
+{
+  "abi": "X86",
+  "info": {
+    "abi": "X86",
+    "bitness": 32,
+    "deprecated": false,
+    "default": true
+  },
+  "originalCxxBuildFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+  "cxxBuildFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+  "abiPlatformVersion": 21,
+  "cmake": {
+    "cmakeWrappingBaseFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cxx\\alphaRelease\\x86",
+    "cmakeArtifactsBaseFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+    "effectiveConfiguration": {
+      "name": "traditional-android-studio-cmake-environment",
+      "description": "Composite reified CMakeSettings configuration",
+      "generator": "Ninja",
+      "inheritEnvironments": [
+        "ndk"
+      ],
+      "buildRoot": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+      "cmakeToolchain": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmakeExecutable": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+      "variables": [
+        {
+          "name": "CMAKE_FIND_ROOT_PATH",
+          "value": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\prefab\\x86\\prefab"
+        },
+        {
+          "name": "CMAKE_BUILD_TYPE",
+          "value": "Release"
+        },
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake"
+        },
+        {
+          "name": "ANDROID_ABI",
+          "value": "x86"
+        },
+        {
+          "name": "ANDROID_NDK",
+          "value": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620"
+        },
+        {
+          "name": "ANDROID_PLATFORM",
+          "value": "android-21"
+        },
+        {
+          "name": "CMAKE_ANDROID_ARCH_ABI",
+          "value": "x86"
+        },
+        {
+          "name": "CMAKE_ANDROID_NDK",
+          "value": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620"
+        },
+        {
+          "name": "CMAKE_EXPORT_COMPILE_COMMANDS",
+          "value": "ON"
+        },
+        {
+          "name": "CMAKE_LIBRARY_OUTPUT_DIRECTORY",
+          "value": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build\\intermediates\\cmake\\alphaRelease\\obj\\x86"
+        },
+        {
+          "name": "CMAKE_RUNTIME_OUTPUT_DIRECTORY",
+          "value": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build\\intermediates\\cmake\\alphaRelease\\obj\\x86"
+        },
+        {
+          "name": "CMAKE_MAKE_PROGRAM",
+          "value": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe"
+        },
+        {
+          "name": "CMAKE_SYSTEM_NAME",
+          "value": "Android"
+        },
+        {
+          "name": "CMAKE_SYSTEM_VERSION",
+          "value": "21"
+        },
+        {
+          "name": "ANDROID_STL",
+          "value": "c++_static"
+        }
+      ]
+    },
+    "cmakeServerLogFile": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86\\cmake_server_log.txt"
+  },
+  "variant": {
+    "buildSystemArgumentList": [
+      "-DANDROID_STL\u003dc++_static"
+    ],
+    "cFlagsList": [],
+    "cppFlagsList": [],
+    "variantName": "alphaRelease",
+    "objFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build\\intermediates\\cmake\\alphaRelease\\obj",
+    "soFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build\\intermediates\\cmake\\alphaRelease\\lib",
+    "isDebuggableEnabled": false,
+    "validAbiList": [
+      "ARMEABI_V7A",
+      "ARM64_V8A",
+      "X86"
+    ],
+    "buildTargetSet": [],
+    "implicitBuildTargetSet": [],
+    "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
+    "module": {
+      "cxxFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx",
+      "splitsAbiFilterSet": [],
+      "intermediatesFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build\\intermediates",
+      "gradleModulePathName": ":app",
+      "moduleRootFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app",
+      "moduleBuildFile": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build.gradle",
+      "makeFile": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\src\\main\\cpp\\CMakeLists.txt",
+      "buildSystem": "CMAKE",
+      "ndkFolder": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
+      "ndkVersion": "23.1.7779620",
+      "ndkSupportedAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultAbiList": [
+        "ARMEABI_V7A",
+        "ARM64_V8A",
+        "X86",
+        "X86_64"
+      ],
+      "ndkDefaultStl": "LIBCXX_STATIC",
+      "ndkMetaPlatforms": {
+        "min": 16,
+        "max": 31,
+        "aliases": {
+          "20": 19,
+          "25": 24,
+          "J": 16,
+          "J-MR1": 17,
+          "J-MR2": 18,
+          "K": 19,
+          "L": 21,
+          "L-MR1": 22,
+          "M": 23,
+          "N": 24,
+          "N-MR1": 24,
+          "O": 26,
+          "O-MR1": 27,
+          "P": 28,
+          "Q": 29,
+          "R": 30,
+          "S": 31
+        }
+      },
+      "ndkMetaAbiList": [
+        {
+          "abi": "ARMEABI_V7A",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "ARM64_V8A",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86",
+          "bitness": 32,
+          "deprecated": false,
+          "default": true
+        },
+        {
+          "abi": "X86_64",
+          "bitness": 64,
+          "deprecated": false,
+          "default": true
+        }
+      ],
+      "originalCmakeToolchainFile": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmakeToolchainFile": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmake": {
+        "isValidCmakeAvailable": true,
+        "cmakeExe": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\cmake.exe",
+        "minimumCmakeVersion": "3.10.2",
+        "ninjaExe": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "isPreferCmakeFileApiEnabled": true
+      },
+      "stlSharedObjectMap": {
+        "LIBCXX_SHARED": {
+          "ARMEABI_V7A": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
+        },
+        "LIBCXX_STATIC": {},
+        "NONE": {},
+        "SYSTEM": {}
+      },
+      "project": {
+        "rootBuildGradleFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm",
+        "cxxFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\.cxx",
+        "compilerSettingsCacheFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\.cxx",
+        "sdkFolder": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk",
+        "isNativeCompilerSettingsCacheEnabled": false,
+        "isBuildOnlyTargetAbiEnabled": true,
+        "isCmakeBuildCohabitationEnabled": false,
+        "isPrefabEnabled": false,
+        "isV2NativeModelEnabled": true
+      },
+      "nativeBuildOutputLevel": "QUIET"
+    },
+    "prefabDirectory": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\prefab"
+  },
+  "buildSettings": {
+    "environmentVariables": []
+  },
+  "prefabFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\prefab\\x86"
+}

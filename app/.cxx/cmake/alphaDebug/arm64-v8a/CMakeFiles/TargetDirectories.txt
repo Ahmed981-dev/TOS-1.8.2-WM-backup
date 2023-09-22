@@ -1,0 +1,3 @@
+/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a/CMakeFiles/rebuild_cache.dir
+/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a/CMakeFiles/edit_cache.dir
+/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a/CMakeFiles/echo.dir

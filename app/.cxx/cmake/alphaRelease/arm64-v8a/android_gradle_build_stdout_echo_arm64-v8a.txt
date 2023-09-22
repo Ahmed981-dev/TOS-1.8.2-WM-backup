@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/imac/AndroidProjects/TOS/1.8.1/app/.cxx/cmake/alphaRelease/arm64-v8a'
+ninja: no work to do.

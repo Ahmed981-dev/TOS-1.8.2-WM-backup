@@ -1,0 +1,2 @@
+ninja: Entering directory `D:\AndroidProjects\TheOneSpy\TOS-1.7.6.2-screen-cast-perm\app\.cxx\cmake\alphaDebug\x86'
+ninja: no work to do.

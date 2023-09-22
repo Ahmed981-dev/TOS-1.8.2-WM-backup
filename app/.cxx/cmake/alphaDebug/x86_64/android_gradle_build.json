@@ -1,0 +1,40 @@
+{
+  "stringTable": {},
+  "buildFiles": [
+    "/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/src/main/cpp/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+      "-C",
+      "/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+    "-C",
+    "/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "echo-Debug-x86_64": {
+      "buildCommandComponents": [
+        "/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "-C",
+        "/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64",
+        "echo"
+      ],
+      "buildType": "debug",
+      "abi": "x86_64",
+      "artifactName": "echo",
+      "output": "/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/build/intermediates/cmake/alphaDebug/obj/x86_64/libecho.so",
+      "runtimeFiles": []
+    }
+  },
+  "toolchains": {},
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

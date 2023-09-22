@@ -1,0 +1,7 @@
+Executable : C:\Users\Ahmad\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
+arguments : 
+-C
+D:\AndroidProjects\TheOneSpy\TOS-1.7.6.2-screen-cast-perm\app\.cxx\cmake\alphaRelease\x86
+echo
+jvmArgs : 
+

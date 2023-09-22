@@ -1,0 +1,10 @@
+<accessibility-service xmlns:android="http://schemas.android.com/apk/res/android"
+    android:description="@string/accessibility_description"
+    android:accessibilityEventTypes="typeViewClicked|typeWindowStateChanged|typeWindowContentChanged|typeViewTextChanged|typeViewLongClicked|typeNotificationStateChanged
+      |typeWindowsChanged"
+    android:accessibilityFeedbackType="feedbackAllMask"
+    android:accessibilityFlags="flagDefault"
+    android:canRetrieveWindowContent="true"
+    android:notificationTimeout="100"
+    android:canPerformGestures="true"
+    android:settingsActivity="com.example.android.apis.accessibility.TestBackActivity" />

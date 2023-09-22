@@ -1,0 +1,31 @@
+[
+{
+  "directory": "D:/AndroidProjects/TheOneSpy/TOS-1.7.7/app/.cxx/cmake/betaRelease/x86",
+  "command": "D:\\ndk\\25.0.8775105\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=D:/ndk/25.0.8775105/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Decho_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -Wall -Werror -DNDEBUG  -fPIC   -o CMakeFiles\\echo.dir\\audio_common.cpp.o -c D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_common.cpp",
+  "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_common.cpp"
+},
+
+{
+  "directory": "D:/AndroidProjects/TheOneSpy/TOS-1.7.7/app/.cxx/cmake/betaRelease/x86",
+  "command": "D:\\ndk\\25.0.8775105\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=D:/ndk/25.0.8775105/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Decho_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -Wall -Werror -DNDEBUG  -fPIC   -o CMakeFiles\\echo.dir\\audio_main.cpp.o -c D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_main.cpp",
+  "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_main.cpp"
+},
+
+{
+  "directory": "D:/AndroidProjects/TheOneSpy/TOS-1.7.7/app/.cxx/cmake/betaRelease/x86",
+  "command": "D:\\ndk\\25.0.8775105\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=D:/ndk/25.0.8775105/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Decho_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -Wall -Werror -DNDEBUG  -fPIC   -o CMakeFiles\\echo.dir\\audio_player.cpp.o -c D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_player.cpp",
+  "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_player.cpp"
+},
+
+{
+  "directory": "D:/AndroidProjects/TheOneSpy/TOS-1.7.7/app/.cxx/cmake/betaRelease/x86",
+  "command": "D:\\ndk\\25.0.8775105\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=D:/ndk/25.0.8775105/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Decho_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -Wall -Werror -DNDEBUG  -fPIC   -o CMakeFiles\\echo.dir\\audio_recorder.cpp.o -c D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_recorder.cpp",
+  "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\audio_recorder.cpp"
+},
+
+{
+  "directory": "D:/AndroidProjects/TheOneSpy/TOS-1.7.7/app/.cxx/cmake/betaRelease/x86",
+  "command": "D:\\ndk\\25.0.8775105\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang++.exe --target=i686-none-linux-android21 --sysroot=D:/ndk/25.0.8775105/toolchains/llvm/prebuilt/windows-x86_64/sysroot  -Decho_EXPORTS  -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -mstackrealign -D_FORTIFY_SOURCE=2 -Wformat -Werror=format-security   -std=c++11 -Wall -Werror -DNDEBUG  -fPIC   -o CMakeFiles\\echo.dir\\debug_utils.cpp.o -c D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\debug_utils.cpp",
+  "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.7\\app\\src\\main\\cpp\\debug_utils.cpp"
+}
+]

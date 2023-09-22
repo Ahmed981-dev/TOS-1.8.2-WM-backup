@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/primary_dark">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <com.android.services.typeface.TextRobotoRegular
+                android:id="@+id/all_done"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:gravity="center"
+                android:text="@string/all_done"
+                android:textColor="@color/cyan"
+                android:textSize="27sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            <CheckBox
+                android:layout_width="0dp"
+                app:layout_constraintWidth_percent="0.8"
+                android:layout_height="wrap_content"
+                android:theme="@style/checkBoxStyle"
+                android:gravity="top"
+                android:checked="true"
+                android:layout_marginTop="15dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/all_done"
+                android:text="Do you want to hide this app?"
+                android:textColor="@color/secondary_text"
+                android:textSize="20sp"
+                android:id="@+id/checkbox_hide_app"/>
+            <CheckBox
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintWidth_percent="0.8"
+                android:gravity="top"
+                android:theme="@style/checkBoxStyle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_hide_app"
+                android:text="Do you want to change App icon and name?"
+                android:textColor="@color/secondary_text"
+                android:textSize="20sp"
+                android:id="@+id/checkbox_change_icon"/>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/app_icons_spinner_layout"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/app_icons_spinner_bg"
+                app:layout_constraintStart_toStartOf="parent"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/checkbox_change_icon"
+                app:layout_constraintWidth_percent="0.7">
+                <Spinner
+                    android:id="@+id/app_icons_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@null"
+                    
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/drop_down_icon"
+                     />
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:id="@+id/drop_down_icon"
+                    android:layout_marginEnd="10dp"
+                    android:src="@drawable/drop_down_icon"
+                    app:layout_constraintStart_toEndOf="@+id/app_icons_spinner"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:id="@+id/dont_hide_app_layout"-->
+<!--                android:layout_width="0dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:padding="10dp"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@+id/change_name_icon_layout">-->
+
+<!--                <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                    android:id="@+id/circle_image_layout3"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    app:layout_constraintWidth_percent="0.2"-->
+<!--                    android:layout_height="match_parent"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toStartOf="@+id/dont_hide_app_instruction"-->
+<!--                    app:layout_constraintStart_toStartOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent">-->
+
+<!--                    <FrameLayout-->
+<!--                        android:id="@+id/circle_image3"-->
+<!--                        android:layout_width="30dp"-->
+<!--                        android:layout_height="30dp"-->
+<!--                        app:layout_constraintTop_toTopOf="parent"-->
+<!--                        app:layout_constraintEnd_toEndOf="parent"-->
+<!--                        android:background="@drawable/ring_shape">-->
+<!--                    </FrameLayout>-->
+<!--                </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--                <com.android.services.typeface.TextRobotoLight-->
+<!--                    android:id="@+id/dont_hide_app_instruction"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:gravity="start|center"-->
+<!--                    android:text="Don't hide app?"-->
+<!--                    android:textColor="@color/secondary_text"-->
+<!--                    android:textSize="20sp"-->
+<!--                    android:layout_marginStart="8dp"-->
+<!--                    android:layout_marginEnd="5dp"-->
+<!--                    app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                    app:layout_constraintEnd_toEndOf="parent"-->
+<!--                    app:layout_constraintStart_toEndOf="@+id/circle_image_layout3"-->
+<!--                    app:layout_constraintTop_toTopOf="parent" />-->
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+            <com.android.services.typeface.ButtonRobotoMedium
+                android:id="@+id/hideAppBtn"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
+                android:layout_marginEnd="12dp"
+                android:background="@drawable/button_ripple_background"
+                android:paddingStart="50dp"
+                android:paddingEnd="50dp"
+                android:text="@string/hide_app_text"
+                android:textColor="@color/colorWhite"
+                android:textSize="17sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/app_icons_spinner_layout"
+                app:layout_constraintWidth_percent="0.5" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <data>
+        <import type="android.view.View" />
+    </data>
+</layout>

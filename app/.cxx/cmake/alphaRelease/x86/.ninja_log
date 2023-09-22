@@ -1,0 +1,7 @@
+# ninja log v5
+0	1955	686632841	CMakeFiles/echo.dir/audio_common.cpp.o	3e7e21c4b437ad6d
+13	2156	686632841	CMakeFiles/echo.dir/debug_utils.cpp.o	fe0f796d19615b8e
+4	2195	686632841	CMakeFiles/echo.dir/audio_player.cpp.o	d1a804559d757b2a
+7	2212	686632841	CMakeFiles/echo.dir/audio_main.cpp.o	ac8045ea11d94828
+10	2224	686632841	CMakeFiles/echo.dir/audio_recorder.cpp.o	47aa097bc7b01047
+2225	2503	686632842	D:/AndroidProjects/TheOneSpy/TOS-1.7.6.2-screen-cast-perm/app/build/intermediates/cmake/alphaRelease/obj/x86/libecho.so	ccd755048de00176

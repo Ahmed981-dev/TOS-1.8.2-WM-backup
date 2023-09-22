@@ -1,0 +1,3 @@
+/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64/CMakeFiles/rebuild_cache.dir
+/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64/CMakeFiles/edit_cache.dir
+/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64/CMakeFiles/echo.dir

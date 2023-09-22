@@ -1,0 +1,7 @@
+# ninja log v5
+0	1010	1682595960	CMakeFiles/echo.dir/audio_common.cpp.o	341bed5baea211d8
+7	1089	1682595960	CMakeFiles/echo.dir/debug_utils.cpp.o	1eee1de826277e55
+5	1099	1682595960	CMakeFiles/echo.dir/audio_recorder.cpp.o	97b97f9ecab0b68d
+3	1107	1682595960	CMakeFiles/echo.dir/audio_player.cpp.o	b79f2720b52fe91b
+2	1110	1682595960	CMakeFiles/echo.dir/audio_main.cpp.o	d760980ca0f999e0
+1110	1224	1682595960	/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/build/intermediates/cmake/alphaDebug/obj/x86_64/libecho.so	5513a6f9b9a573c8

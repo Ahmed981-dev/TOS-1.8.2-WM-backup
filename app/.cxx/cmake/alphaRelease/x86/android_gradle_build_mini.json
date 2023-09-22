@@ -1,0 +1,33 @@
+{
+  "buildFiles": [
+    "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\src\\main\\cpp\\CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+      "-C",
+      "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+    "-C",
+    "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "echo-Release-x86": {
+      "artifactName": "echo",
+      "buildCommandComponents": [
+        "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
+        "-C",
+        "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\.cxx\\cmake\\alphaRelease\\x86",
+        "echo"
+      ],
+      "abi": "x86",
+      "output": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2-screen-cast-perm\\app\\build\\intermediates\\cmake\\alphaRelease\\obj\\x86\\libecho.so",
+      "runtimeFiles": []
+    }
+  }
+}

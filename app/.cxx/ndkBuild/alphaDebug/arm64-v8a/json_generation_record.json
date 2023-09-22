@@ -1,0 +1,86 @@
+[
+  {
+    "level": "INFO",
+    "message": "Start JSON generation. Platform version: 21 min SDK version: arm64-v8a",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "rebuilding JSON D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\.cxx\\ndkBuild\\alphaDebug\\arm64-v8a\\android_gradle_build.json due to:",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "- expected json D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\.cxx\\ndkBuild\\alphaDebug\\arm64-v8a\\android_gradle_build.json file is not present, will remove stale json folder",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "- missing previous command file D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\.cxx\\ndkBuild\\alphaDebug\\arm64-v8a\\build_command.txt, will remove stale json folder",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "- command changed from previous, will remove stale json folder",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "created folder \u0027D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\.cxx\\ndkBuild\\alphaDebug\\arm64-v8a\u0027",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "executing ndkBuild Executable : D:\\AndroidStudioLocalData\\sdk\\ndk\\23.1.7779620\\ndk-build.cmd\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk\nAPP_ABI\u003darm64-v8a\nNDK_ALL_ABIS\u003darm64-v8a\nNDK_DEBUG\u003d1\nAPP_PLATFORM\u003dandroid-21\nNDK_OUT\u003dD:/AndroidProjects/TheOneSpy/TOS-1.7.6.2/app/build/intermediates/ndkBuild/alphaDebug/obj\nNDK_LIBS_OUT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\build\\intermediates\\ndkBuild\\alphaDebug\\lib\nAPP_CPPFLAGS+\u003d\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "Executable : D:\\AndroidStudioLocalData\\sdk\\ndk\\23.1.7779620\\ndk-build.cmd\narguments : \nNDK_PROJECT_PATH\u003dnull\nAPP_BUILD_SCRIPT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk\nAPP_ABI\u003darm64-v8a\nNDK_ALL_ABIS\u003darm64-v8a\nNDK_DEBUG\u003d1\nAPP_PLATFORM\u003dandroid-21\nNDK_OUT\u003dD:/AndroidProjects/TheOneSpy/TOS-1.7.6.2/app/build/intermediates/ndkBuild/alphaDebug/obj\nNDK_LIBS_OUT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\build\\intermediates\\ndkBuild\\alphaDebug\\lib\nAPP_CPPFLAGS+\u003d\nAPP_SHORT_COMMANDS\u003dfalse\nLOCAL_SHORT_COMMANDS\u003dfalse\n-B\n-n\njvmArgs : \n\n",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "parse and convert ndk-build output to build configuration JSON",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "done executing ndkBuild",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "write command file D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\app\\.cxx\\ndkBuild\\alphaDebug\\arm64-v8a\\build_command.txt",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  },
+  {
+    "level": "INFO",
+    "message": "JSON generation completed without problems",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.7.6.2\\androidlame\\src\\main\\jni\\Android.mk",
+    "tag": "alphaDebug|arm64-v8a",
+    "diagnosticCode": "UNKNOWN"
+  }
+]

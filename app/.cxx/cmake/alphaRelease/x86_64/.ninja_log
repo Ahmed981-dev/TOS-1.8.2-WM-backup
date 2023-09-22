@@ -1,0 +1,7 @@
+# ninja log v5
+1	1512	702299881	CMakeFiles/echo.dir/audio_common.cpp.o	833cf034cc1b3f91
+12	1646	702299881	CMakeFiles/echo.dir/audio_recorder.cpp.o	5423c44f9ec1e5bd
+7	1702	702299881	CMakeFiles/echo.dir/audio_player.cpp.o	d060c97160c2c6eb
+5	1721	702299881	CMakeFiles/echo.dir/audio_main.cpp.o	9a82d574e85dd5ac
+9	1800	702299881	CMakeFiles/echo.dir/debug_utils.cpp.o	32823764662cd087
+1801	2155	702299882	D:/AndroidProjects/TheOneSpy/TOS-1.7.6.5/app/build/intermediates/cmake/alphaRelease/obj/x86_64/libecho.so	bfc27bdc48d88ddd

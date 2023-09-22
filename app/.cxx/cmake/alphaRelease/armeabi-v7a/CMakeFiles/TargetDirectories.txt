@@ -1,0 +1,3 @@
+/Users/imac/AndroidProjects/TOS/1.8.1/app/.cxx/cmake/alphaRelease/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+/Users/imac/AndroidProjects/TOS/1.8.1/app/.cxx/cmake/alphaRelease/armeabi-v7a/CMakeFiles/edit_cache.dir
+/Users/imac/AndroidProjects/TOS/1.8.1/app/.cxx/cmake/alphaRelease/armeabi-v7a/CMakeFiles/echo.dir

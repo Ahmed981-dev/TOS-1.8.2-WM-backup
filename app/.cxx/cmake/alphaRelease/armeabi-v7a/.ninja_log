@@ -1,0 +1,7 @@
+# ninja log v5
+0	809	1686920691	CMakeFiles/echo.dir/audio_common.cpp.o	4adb13e3b984be61
+4	888	1686920691	CMakeFiles/echo.dir/audio_recorder.cpp.o	92b12325770b4207
+3	898	1686920691	CMakeFiles/echo.dir/audio_player.cpp.o	691ab4d45c5e4e98
+1	913	1686920691	CMakeFiles/echo.dir/audio_main.cpp.o	3361d8c3820fe619
+5	950	1686920691	CMakeFiles/echo.dir/debug_utils.cpp.o	b838a696b579c81f
+951	1057	1686920691	/Users/imac/AndroidProjects/TOS/1.8.1/app/build/intermediates/cmake/alphaRelease/obj/armeabi-v7a/libecho.so	ec38610c2decc6ee

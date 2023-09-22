@@ -1,0 +1,3 @@
+D:/AndroidProjects/TheOneSpy/TOS-1.7.6.2-screen-cast-perm/app/.cxx/cmake/alphaRelease/x86/CMakeFiles/echo.dir
+D:/AndroidProjects/TheOneSpy/TOS-1.7.6.2-screen-cast-perm/app/.cxx/cmake/alphaRelease/x86/CMakeFiles/edit_cache.dir
+D:/AndroidProjects/TheOneSpy/TOS-1.7.6.2-screen-cast-perm/app/.cxx/cmake/alphaRelease/x86/CMakeFiles/rebuild_cache.dir

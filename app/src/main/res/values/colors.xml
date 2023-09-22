@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primary">#222D3A</color>
+    <color name="primary_dark">#181F26</color>
+    <color name="cyan">#6CCCFF</color>
+    <color name="cyan_selected">#98DBFE</color>
+    <color name="cyan_btn_txt">#212d39</color>
+    <color name="blue">#0674B3</color>
+    <color name="blue_selected">#1989CA</color>
+    <color name="blue_light">#E5f6fE</color>
+    <color name="primary_text">#FFF</color>
+    <color name="secondary_text">#E6F7FF</color>
+    <color name="blue_disabled">#0e5e8b</color>
+    <color name="white">#FFF</color>
+    <color name="dark_gray">#333333</color>
+    <color name="gray">#808080</color>
+    <color name="light_gray">#ECECEC</color>
+    <color name="dark_grayer">#2F4F4F</color>
+    <color name="transparent">#00000000</color>
+
+    <color name="colorPrimary">#242D39</color>
+    <color name="colorPrimaryDark">#242D39</color>
+    <color name="colorBlue">#4394D5</color>
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorGray">#808080</color>
+    <color name="colorDarkGray">#333333</color>
+</resources>

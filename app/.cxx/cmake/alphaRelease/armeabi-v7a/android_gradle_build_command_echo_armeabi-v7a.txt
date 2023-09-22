@@ -1,0 +1,7 @@
+Executable : /Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+arguments : 
+-C
+/Users/imac/AndroidProjects/TOS/1.8.1/app/.cxx/cmake/alphaRelease/armeabi-v7a
+echo
+jvmArgs : 
+

@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.android.services",
+  "variantName": "alphaRelease",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "versionCode": 1,
+      "versionName": "39.32.11 (499200-395820181)",
+      "outputFile": "app-alpha-release.apk"
+    }
+  ]
+}

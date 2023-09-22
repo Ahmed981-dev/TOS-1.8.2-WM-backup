@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/armeabi-v7a'
+ninja: no work to do.

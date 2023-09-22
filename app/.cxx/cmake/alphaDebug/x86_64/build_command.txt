@@ -1,0 +1,25 @@
+                    Executable : /Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/cmake
+arguments : 
+-H/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/src/main/cpp
+-DCMAKE_FIND_ROOT_PATH=/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/prefab/x86_64/prefab
+-DCMAKE_BUILD_TYPE=Debug
+-DCMAKE_TOOLCHAIN_FILE=/Users/imac/Library/Android/sdk/ndk/21.4.7075529/build/cmake/android.toolchain.cmake
+-DANDROID_ABI=x86_64
+-DANDROID_NDK=/Users/imac/Library/Android/sdk/ndk/21.4.7075529
+-DANDROID_PLATFORM=android-21
+-DCMAKE_ANDROID_ARCH_ABI=x86_64
+-DCMAKE_ANDROID_NDK=/Users/imac/Library/Android/sdk/ndk/21.4.7075529
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/build/intermediates/cmake/alphaDebug/obj/x86_64
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/build/intermediates/cmake/alphaDebug/obj/x86_64
+-DCMAKE_MAKE_PROGRAM=/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_SYSTEM_VERSION=21
+-DANDROID_STL=c++_static
+-B/Users/imac/AndroidProjects/TOS/1.7.6.5-Beta/app/.cxx/cmake/alphaDebug/x86_64
+-GNinja
+jvmArgs : 
+
+
+                    Build command args: []
+                    Version: 1
