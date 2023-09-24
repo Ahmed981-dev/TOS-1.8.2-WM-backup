@@ -1,1 +1,1 @@
-/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/src/main/jni/Android.mk
+D:\AndroidProjects\TheOneSpy\TOS-1.8.2-WM\androidlame\src\main\jni\Android.mk

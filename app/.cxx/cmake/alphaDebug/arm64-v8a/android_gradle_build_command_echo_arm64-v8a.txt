@@ -1,7 +1,7 @@
-Executable : /Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja
+Executable : C:\Users\Ahmad\AppData\Local\Android\Sdk\cmake\3.10.2.4988404\bin\ninja.exe
 arguments : 
 -C
-/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a
+D:\AndroidProjects\TheOneSpy\TOS-1.8.2-WM\app\.cxx\cmake\alphaDebug\arm64-v8a
 echo
 jvmArgs : 
 

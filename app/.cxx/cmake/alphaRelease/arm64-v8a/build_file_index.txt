@@ -1,1 +1,1 @@
-/Users/imac/AndroidProjects/TOS/1.8.1/app/src/main/cpp/CMakeLists.txt
+D:\AndroidProjects\TheOneSpy\TOS-1.8.2-WM\app\src\main\cpp\CMakeLists.txt

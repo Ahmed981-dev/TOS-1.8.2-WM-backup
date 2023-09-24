@@ -1,7 +1,7 @@
 # ninja log v5
-0	1091	1695274881	CMakeFiles/echo.dir/audio_common.cpp.o	b769f4ef31049691
-3	1139	1695274881	CMakeFiles/echo.dir/audio_player.cpp.o	d6d87e3ef5caeb18
-5	1180	1695274881	CMakeFiles/echo.dir/debug_utils.cpp.o	c33913957ab4f0c4
-4	1228	1695274881	CMakeFiles/echo.dir/audio_recorder.cpp.o	8f85d511fc03ead8
-1	1238	1695274881	CMakeFiles/echo.dir/audio_main.cpp.o	97b9a8c2fd865305
-1238	1426	1695274881	/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/build/intermediates/cmake/alphaDebug/obj/arm64-v8a/libecho.so	8ee988051bc87596
+11	5068	717138635	CMakeFiles/echo.dir/audio_common.cpp.o	2c681d605999c769
+14	5196	717138635	CMakeFiles/echo.dir/audio_recorder.cpp.o	9f6734360a4f371b
+0	5199	717138635	CMakeFiles/echo.dir/audio_main.cpp.o	aae828f2898519c
+8	5202	717138636	CMakeFiles/echo.dir/audio_player.cpp.o	e8776c42efb3b13e
+17	5206	717138635	CMakeFiles/echo.dir/debug_utils.cpp.o	3322a903d21fc77
+5206	6476	717138637	D:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/app/build/intermediates/cmake/alphaDebug/obj/arm64-v8a/libecho.so	905dc27e3eae3a63

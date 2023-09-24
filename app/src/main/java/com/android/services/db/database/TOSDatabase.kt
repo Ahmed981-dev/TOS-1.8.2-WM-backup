@@ -20,7 +20,7 @@ import com.android.services.util.Converters
         SnapChatUnrooted::class, InstagramUnrooted::class, TinderUnrooted::class, TumblrUnrooted::class, HikeUnrooted::class, WebSite::class,
         RestrictedCall::class, ScreenLimit::class, AppLimit::class, BlockedApp::class, GeoFence::class, GeoFenceEvent::class, VoiceMessage::class, TextAlert::class, AppNotifications::class,
         TextAlertEvent::class,PhoneServices::class],
-    version = 3,
+    version = 5,
     exportSchema = false
 )
 @TypeConverters(Converters::class)

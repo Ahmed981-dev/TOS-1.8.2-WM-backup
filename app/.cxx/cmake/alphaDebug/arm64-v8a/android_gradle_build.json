@@ -1,34 +1,34 @@
 {
   "stringTable": {},
   "buildFiles": [
-    "/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/src/main/cpp/CMakeLists.txt"
+    "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\app\\src\\main\\cpp\\CMakeLists.txt"
   ],
   "cleanCommandsComponents": [
     [
-      "/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+      "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
       "-C",
-      "/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a",
+      "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\app\\.cxx\\cmake\\alphaDebug\\arm64-v8a",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
-    "/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+    "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
     "-C",
-    "/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a",
+    "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\app\\.cxx\\cmake\\alphaDebug\\arm64-v8a",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
     "echo-Debug-arm64-v8a": {
       "buildCommandComponents": [
-        "/Users/imac/Library/Android/sdk/cmake/3.10.2.4988404/bin/ninja",
+        "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\cmake\\3.10.2.4988404\\bin\\ninja.exe",
         "-C",
-        "/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/.cxx/cmake/alphaDebug/arm64-v8a",
+        "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\app\\.cxx\\cmake\\alphaDebug\\arm64-v8a",
         "echo"
       ],
       "buildType": "debug",
       "abi": "arm64-v8a",
       "artifactName": "echo",
-      "output": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/build/intermediates/cmake/alphaDebug/obj/arm64-v8a/libecho.so",
+      "output": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\app\\build\\intermediates\\cmake\\alphaDebug\\obj\\arm64-v8a\\libecho.so",
       "runtimeFiles": []
     }
   },

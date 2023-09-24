@@ -190,6 +190,9 @@ class LocalDatabaseSource @Inject constructor(
     // MicBug
     fun insertMicBug(micBug: MicBug) = micBugDao.insert(micBug)
     fun selectMicBugs(callback: (List<MicBug>) -> Unit) = callback(micBugDao.selectAllMicBugs(0, 1))
+    fun selectMicBugWithSamePushId(pushId: String): List<MicBug> =
+        micBugDao.selectMicBugWithSamePushId(pushId)
+
     fun updateMicBug(file: String) = micBugDao.update(file, 1)
     fun updateMicBugCompressionStatus(file: String, isCompressed: Int) =
         micBugDao.updateCompressionStatus(file, isCompressed)
@@ -237,8 +240,13 @@ class LocalDatabaseSource @Inject constructor(
 
     //CallRecording
     fun insertCallRecording(callRecording: CallRecording) = callRecordingDao.insert(callRecording)
+    fun checkIfCallRecordExist(callDate: String, callNumber: String) =
+        callRecordingDao.checkIfCallRecordExist(callDate, callNumber)
+
     fun selectCallRecordings(callback: (List<CallRecording>) -> Unit) =
         callback(callRecordingDao.selectAllCallRecordings(1, 0))
+
+
 
     fun updateCallRecording(file: String) = callRecordingDao.update(file, 1)
     fun updateCallRecordingCompressionStatus(file: String, status: Int) =
@@ -257,6 +265,15 @@ class LocalDatabaseSource @Inject constructor(
     fun insertVoipCall(voipCall: VoipCall) = voipCallDao.insert(voipCall)
     fun selectVoipCalls(callback: (List<VoipCall>) -> Unit) =
         callback(voipCallDao.selectAllVoipCalls(0, 1))
+
+    fun checkIfVoipCallAlreadyProceeded(callTime: String): String {
+        val voipList = voipCallDao.checkIfVoipCallAlreadyProceeded(callTime)
+        if (voipList.isEmpty()) {
+            return "0"
+        } else {
+            return voipList.size.toString()
+        }
+    }
 
     fun updateVoipCall(file: String) = voipCallDao.updateVoipCall(file, 1)
     fun updateVoipCallCompressionStatus(file: String, isCompressed: Int) =

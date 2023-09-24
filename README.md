@@ -374,4 +374,5 @@ TOS-1.8.2 Changes:
 -Added Worker manager for data uploading, micbug, videobug, call recording, voip call recording,
 view360, view360ByJitsi
 -Added temperation on google play protect
+-Change voip call funtionality in insert funtion
 

@@ -18,46 +18,6 @@ object VideoCompressionUtil {
      * @param destFile Destination File
      */
     fun compressVideo(context: Context, sourceFilePath: String, destFile: String) {
-//        try {
-//            val sourceFile= File(sourceFilePath)
-//            val quality= if(sourceFile.exists() && sourceFile.sizeInMb >20){
-//                VideoQuality.VERY_LOW
-//            }else{
-//                VideoQuality.LOW
-//            }
-//            VideoCompressor.start(
-//                sourceFilePath,
-//                destFile,
-//                object : CompressionListener {
-//                    override fun onProgress(percent: Float) {
-//                    }
-//
-//                    override fun onStart() {
-//
-//                    }
-//
-//                    override fun onSuccess() {
-//                        GlobalScope.launch(Dispatchers.Default) {
-//                            reNameFile(context, sourceFilePath, destFile)
-//                            updateCompressionStatus(context, sourceFilePath)
-//                        }
-//                    }
-//
-//                    override fun onFailure(failureMessage: String) {
-//
-//                    }
-//
-//                    override fun onCancelled() {
-//                        logVerbose("Compression has been cancelled for $sourceFilePath")
-//                    }
-//                },
-//                quality,
-//                isMinBitRateEnabled = false,
-//                keepOriginalResolution = false,
-//            )
-//        } catch (exp: Exception) {
-//            logVerbose("Error While compressing $sourceFilePath = ${exp.message}")
-//        }
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 if (AppConstants.osGreaterThanEqualToNougat) {

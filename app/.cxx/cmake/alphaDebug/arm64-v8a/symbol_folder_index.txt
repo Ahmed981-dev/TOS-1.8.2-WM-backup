@@ -1,1 +1,1 @@
-/Users/imac/AndroidProjects/TOS/1.8.2-WM/app/build/intermediates/cmake/alphaDebug/obj/arm64-v8a
+D:\AndroidProjects\TheOneSpy\TOS-1.8.2-WM\app\build\intermediates\cmake\alphaDebug\obj\arm64-v8a

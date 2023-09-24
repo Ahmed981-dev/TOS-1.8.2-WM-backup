@@ -1,56 +1,56 @@
 {
   "buildFiles": [
-    "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/src/main/jni/Android.mk"
+    "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk"
   ],
   "cleanCommandsComponents": [
     [
-      "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/ndk-build",
+      "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\ndk-build.cmd",
       "NDK_PROJECT_PATH\u003dnull",
-      "APP_BUILD_SCRIPT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/src/main/jni/Android.mk",
+      "APP_BUILD_SCRIPT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
       "APP_ABI\u003darmeabi-v7a",
       "NDK_ALL_ABIS\u003darmeabi-v7a",
       "NDK_DEBUG\u003d1",
       "APP_PLATFORM\u003dandroid-16",
-      "NDK_OUT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj",
-      "NDK_LIBS_OUT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/lib",
+      "NDK_OUT\u003dD:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj",
+      "NDK_LIBS_OUT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates\\ndkBuild\\debug\\lib",
       "clean"
     ]
   ],
   "buildTargetsCommandComponents": [
-    "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/ndk-build",
+    "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\ndk-build.cmd",
     "NDK_PROJECT_PATH\u003dnull",
-    "APP_BUILD_SCRIPT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/src/main/jni/Android.mk",
+    "APP_BUILD_SCRIPT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
     "APP_ABI\u003darmeabi-v7a",
     "NDK_ALL_ABIS\u003darmeabi-v7a",
     "NDK_DEBUG\u003d1",
     "APP_PLATFORM\u003dandroid-16",
-    "NDK_OUT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj",
-    "NDK_LIBS_OUT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/lib",
+    "NDK_OUT\u003dD:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj",
+    "NDK_LIBS_OUT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates\\ndkBuild\\debug\\lib",
     "{LIST_OF_TARGETS_TO_BUILD}"
   ],
   "libraries": {
     "androidlame-debug-armeabi-v7a": {
       "buildCommandComponents": [
-        "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/ndk-build",
+        "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\ndk-build.cmd",
         "NDK_PROJECT_PATH\u003dnull",
-        "APP_BUILD_SCRIPT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/src/main/jni/Android.mk",
+        "APP_BUILD_SCRIPT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
         "APP_ABI\u003darmeabi-v7a",
         "NDK_ALL_ABIS\u003darmeabi-v7a",
         "NDK_DEBUG\u003d1",
         "APP_PLATFORM\u003dandroid-16",
-        "NDK_OUT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj",
-        "NDK_LIBS_OUT\u003d/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/lib",
-        "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libandroidlame.so"
+        "NDK_OUT\u003dD:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj",
+        "NDK_LIBS_OUT\u003dD:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates\\ndkBuild\\debug\\lib",
+        "D:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libandroidlame.so"
       ],
       "toolchain": "toolchain-armeabi-v7a",
       "abi": "armeabi-v7a",
       "artifactName": "androidlame",
-      "output": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj/local/armeabi-v7a/libandroidlame.so"
+      "output": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates\\ndkBuild\\debug\\obj\\local\\armeabi-v7a\\libandroidlame.so"
     }
   },
   "toolchains": {
     "toolchain-armeabi-v7a": {
-      "cCompilerExecutable": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang"
+      "cCompilerExecutable": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\..\\toolchains\\llvm\\prebuilt\\windows-x86_64\\bin\\clang.exe"
     }
   },
   "cFileExtensions": [

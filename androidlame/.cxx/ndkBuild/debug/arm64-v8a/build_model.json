@@ -6,16 +6,16 @@
     "deprecated": false,
     "default": true
   },
-  "originalCxxBuildFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/.cxx/ndkBuild/debug/arm64-v8a",
-  "cxxBuildFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/.cxx/ndkBuild/debug/arm64-v8a",
+  "originalCxxBuildFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\.cxx\\ndkBuild\\debug\\arm64-v8a",
+  "cxxBuildFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\.cxx\\ndkBuild\\debug\\arm64-v8a",
   "abiPlatformVersion": 16,
   "variant": {
     "buildSystemArgumentList": [],
     "cFlagsList": [],
     "cppFlagsList": [],
     "variantName": "debug",
-    "objFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/obj/local",
-    "soFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates/ndkBuild/debug/lib",
+    "objFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates\\ndkBuild\\debug\\obj\\local",
+    "soFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates\\ndkBuild\\debug\\lib",
     "isDebuggableEnabled": true,
     "validAbiList": [
       "ARM64_V8A"
@@ -24,15 +24,15 @@
     "implicitBuildTargetSet": [],
     "cmakeSettingsConfiguration": "android-gradle-plugin-predetermined-name",
     "module": {
-      "cxxFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/.cxx",
+      "cxxFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\.cxx",
       "splitsAbiFilterSet": [],
-      "intermediatesFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build/intermediates",
+      "intermediatesFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build\\intermediates",
       "gradleModulePathName": ":androidlame",
-      "moduleRootFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame",
-      "moduleBuildFile": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/build.gradle",
-      "makeFile": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/src/main/jni/Android.mk",
+      "moduleRootFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame",
+      "moduleBuildFile": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\build.gradle",
+      "makeFile": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
       "buildSystem": "NDK_BUILD",
-      "ndkFolder": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620",
+      "ndkFolder": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620",
       "ndkVersion": "23.1.7779620",
       "ndkSupportedAbiList": [
         "ARMEABI_V7A",
@@ -96,24 +96,24 @@
           "default": true
         }
       ],
-      "originalCmakeToolchainFile": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake",
-      "cmakeToolchainFile": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/build/cmake/android.toolchain.cmake",
+      "originalCmakeToolchainFile": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
+      "cmakeToolchainFile": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\build\\cmake\\android.toolchain.cmake",
       "stlSharedObjectMap": {
         "LIBCXX_SHARED": {
-          "ARMEABI_V7A": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/arm-linux-androideabi/libc++_shared.so",
-          "ARM64_V8A": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/aarch64-linux-android/libc++_shared.so",
-          "X86": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/i686-linux-android/libc++_shared.so",
-          "X86_64": "/Users/imac/Library/Android/sdk/ndk/23.1.7779620/toolchains/llvm/prebuilt/darwin-x86_64/sysroot/usr/lib/x86_64-linux-android/libc++_shared.so"
+          "ARMEABI_V7A": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\arm-linux-androideabi\\libc++_shared.so",
+          "ARM64_V8A": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\aarch64-linux-android\\libc++_shared.so",
+          "X86": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\i686-linux-android\\libc++_shared.so",
+          "X86_64": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk\\ndk\\23.1.7779620\\toolchains\\llvm\\prebuilt\\windows-x86_64\\sysroot\\usr\\lib\\x86_64-linux-android\\libc++_shared.so"
         },
         "LIBCXX_STATIC": {},
         "NONE": {},
         "SYSTEM": {}
       },
       "project": {
-        "rootBuildGradleFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM",
-        "cxxFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/.cxx",
-        "compilerSettingsCacheFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/.cxx",
-        "sdkFolder": "/Users/imac/Library/Android/sdk",
+        "rootBuildGradleFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM",
+        "cxxFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\.cxx",
+        "compilerSettingsCacheFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\.cxx",
+        "sdkFolder": "C:\\Users\\Ahmad\\AppData\\Local\\Android\\Sdk",
         "isNativeCompilerSettingsCacheEnabled": false,
         "isBuildOnlyTargetAbiEnabled": true,
         "ideBuildTargetAbi": "arm64-v8a,armeabi-v7a,armeabi",
@@ -123,10 +123,10 @@
       },
       "nativeBuildOutputLevel": "QUIET"
     },
-    "prefabDirectory": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/.cxx/ndkBuild/debug/prefab"
+    "prefabDirectory": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\.cxx\\ndkBuild\\debug\\prefab"
   },
   "buildSettings": {
     "environmentVariables": []
   },
-  "prefabFolder": "/Users/imac/AndroidProjects/TOS/1.8.2-WM/androidlame/.cxx/ndkBuild/debug/prefab/arm64-v8a"
+  "prefabFolder": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\.cxx\\ndkBuild\\debug\\prefab\\arm64-v8a"
 }

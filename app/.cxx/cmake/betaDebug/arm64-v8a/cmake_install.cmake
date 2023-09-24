@@ -1,4 +1,4 @@
-# Install script for directory: D:/AndroidProjects/TheOneSpy/TOS-1.7.6.2/app/src/main/cpp
+# Install script for directory: D:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/app/src/main/cpp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "D:/AndroidProjects/TheOneSpy/TOS-1.7.6.2/app/.cxx/cmake/betaDebug/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/AndroidProjects/TheOneSpy/TOS-1.8.2-WM/app/.cxx/cmake/betaDebug/arm64-v8a/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

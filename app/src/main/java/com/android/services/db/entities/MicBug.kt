@@ -13,9 +13,10 @@ data class MicBug(
     @ColumnInfo(name = "startDatetime") var startDatetime: String,
     @ColumnInfo(name = "pushId") var pushId: String,
     @ColumnInfo(name = "pushStatus") var pushStatus: String,
+    @field:Transient @field:ColumnInfo(name = "totalDuration") var totalDuration: Int,
     @field:Transient @field:ColumnInfo(name = "date") var date: Date,
     @ColumnInfo(name = "is_compressed") var isCompressed: Int,
     @ColumnInfo(name = "mic_bug_status") var status: Int
 ) {
-    constructor() : this("", "", "", "", "", "", Date(), 0, 0)
+    constructor() : this("", "", "", "", "", "",0, Date(), 0, 0)
 }

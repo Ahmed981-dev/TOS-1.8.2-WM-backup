@@ -7,7 +7,8 @@ import com.android.services.enums.CallRecordType
 class CallRecord(
     var callRecordType: CallRecordType,
     val phoneNumber: String,
-    val callType: String
+    val callType: String,
+    val callDateTime:String
 ) : Parcelable {
 
     override fun toString(): String {

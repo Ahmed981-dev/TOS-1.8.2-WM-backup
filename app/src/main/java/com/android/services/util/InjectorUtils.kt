@@ -51,4 +51,15 @@ object InjectorUtils {
     // TextAlerts Event Repository
     fun provideTextAlertEventRepository(context: Context): TextAlertEventRepository =
         TextAlertEventRepository(TOSDatabaseImpl.getAppDatabase(context).textAlertEventsDao())
+
+    // MicBug Repository
+    fun provideMicBugRepository(context: Context): MicBugRepository =
+        MicBugRepository(TOSDatabaseImpl.getAppDatabase(context).micBugDao())
+
+    // VOip Call Record Repository
+    fun provideVoipCallRepository(context: Context): VoipCallRecordingRepository =
+        VoipCallRecordingRepository(TOSDatabaseImpl.getAppDatabase(context).voipCallDao())
+    // Call Record Repository
+    fun provideCallRecordRepository(context: Context): CallRecordRepository =
+        CallRecordRepository(TOSDatabaseImpl.getAppDatabase(context).callRecordingDao())
 }

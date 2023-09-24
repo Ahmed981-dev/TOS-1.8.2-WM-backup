@@ -22,8 +22,14 @@ interface VoipCallDao {
     @Query("Select * from voip_call where status = :status and isCompressed=:is_compressed order by date DESC limit ${AppConstants.mediaFilesUploadLimit}")
     fun selectAllVoipCalls(status: Int, is_compressed: Int): List<VoipCall>
 
+    @Query("Select * from voip_call where isCompressed=:is_compressed order by date")
+    fun selectUnCompressedVoipCalls(is_compressed: Int=0): List<VoipCall>
+
     @Query("Select uniqueId from voip_call where uniqueId = :unique_id")
     fun checkIfAlreadyExist(unique_id: String): String
+
+    @Query("Select * from voip_call where callDateTime = :callTime")
+    fun checkIfVoipCallAlreadyProceeded(callTime: String): List<VoipCall>
 
     @Query("Update voip_call set isCompressed=:is_compressed where file=:file")
     fun updateCompressionStatus(file: String, is_compressed: Int): Int

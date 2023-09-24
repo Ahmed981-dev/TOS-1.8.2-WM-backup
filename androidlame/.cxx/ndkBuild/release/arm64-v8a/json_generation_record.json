@@ -2,21 +2,21 @@
   {
     "level": "INFO",
     "message": "Start JSON generation. Platform version: 16 min SDK version: arm64-v8a",
-    "file": "/Users/imac/AndroidProjects/TOS/1.8.1/androidlame/src/main/jni/Android.mk",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
     "tag": "release|arm64-v8a",
     "diagnosticCode": "UNKNOWN"
   },
   {
     "level": "INFO",
-    "message": "JSON \u0027/Users/imac/AndroidProjects/TOS/1.8.1/androidlame/.cxx/ndkBuild/release/arm64-v8a/android_gradle_build.json\u0027 was up-to-date",
-    "file": "/Users/imac/AndroidProjects/TOS/1.8.1/androidlame/src/main/jni/Android.mk",
+    "message": "JSON \u0027D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\.cxx\\ndkBuild\\release\\arm64-v8a\\android_gradle_build.json\u0027 was up-to-date",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
     "tag": "release|arm64-v8a",
     "diagnosticCode": "UNKNOWN"
   },
   {
     "level": "INFO",
     "message": "JSON generation completed without problems",
-    "file": "/Users/imac/AndroidProjects/TOS/1.8.1/androidlame/src/main/jni/Android.mk",
+    "file": "D:\\AndroidProjects\\TheOneSpy\\TOS-1.8.2-WM\\androidlame\\src\\main\\jni\\Android.mk",
     "tag": "release|arm64-v8a",
     "diagnosticCode": "UNKNOWN"
   }

@@ -336,7 +336,7 @@ class CallRecorderReceiver : BroadcastReceiver() {
                     context,
                     "${AppConstants.CALL_RECORD_TYPE} Extra Call Type : $callType"
                 )
-                val callRecord = CallRecord(callRecordType, mCallNumber, callType)
+                val callRecord = CallRecord(callRecordType, mCallNumber, callType,AppUtils.formatDate(System.currentTimeMillis().toString()))
 
                 context.startActivityWithData<BackgroundServicesActivity>(
                     listOf(
