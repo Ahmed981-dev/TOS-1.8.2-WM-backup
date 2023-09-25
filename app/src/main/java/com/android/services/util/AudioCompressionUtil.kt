@@ -16,7 +16,7 @@ object AudioCompressionUtil {
      * @param sourceFile Source File
      * @param destFile Destination File
      */
-    fun compressAudio(context: Context, sourceFilePath: String, destFile: String) {
+    fun compressAudio(context: Context, sourceFilePath: String, destFile: String, logType: String) {
         GlobalScope.launch(Dispatchers.IO) {
             try {
                 when (val rc =
@@ -26,7 +26,8 @@ object AudioCompressionUtil {
                             "Command execution completed successfully.",
                             AppConstants.MIC_BUG_TYPE
                         )
-                        destFile
+                        reNameFile(context, sourceFilePath, destFile, logType)
+                        updateCompressionStatus(context, sourceFilePath, logType)
                     }
 
                     Config.RETURN_CODE_CANCEL -> {
@@ -34,7 +35,8 @@ object AudioCompressionUtil {
                             "Command execution cancelled by user.",
                             AppConstants.MIC_BUG_TYPE
                         )
-                        null
+                        reNameFile(context, sourceFilePath, destFile, logType)
+                        updateCompressionStatus(context, sourceFilePath, logType)
                     }
 
                     else -> {
@@ -45,12 +47,50 @@ object AudioCompressionUtil {
                             ), AppConstants.MIC_BUG_TYPE
                         )
                         Config.printLastCommandOutput(Log.INFO)
-                        null
+                        updateCompressionStatus(context, sourceFilePath, logType)
                     }
                 }
-            }catch (ex:Exception){
-
+            } catch (ex: Exception) {
+                updateCompressionStatus(context, sourceFilePath, logType)
             }
         }
     }
+
+    private suspend fun reNameFile(
+        context: Context,
+        sourceFile: String,
+        destFile: String,
+        logType: String
+    ) {
+        withContext(Dispatchers.IO) {
+            AppUtils.reNameSourceFileWithDestFile(
+                context,
+                sourceFile,
+                destFile,
+                logType
+            )
+        }
+    }
+
+    suspend fun updateCompressionStatus(context: Context, sourceFile: String, logType: String) {
+        withContext(Dispatchers.IO) {
+            when (logType) {
+                AppConstants.MIC_BUG_TYPE -> {
+                    InjectorUtils.provideMicBugRepository(context)
+                        .updateCompressionStatus(sourceFile)
+                }
+
+                AppConstants.VOIP_CALL_TYPE -> {
+                    InjectorUtils.provideVoipCallRepository(context)
+                        .updateCompressionStatus(sourceFile)
+                }
+
+                else -> {
+                    InjectorUtils.provideCallRecordRepository(context)
+                        .updateCompressionStatus(sourceFile)
+                }
+            }
+        }
+    }
+
 }

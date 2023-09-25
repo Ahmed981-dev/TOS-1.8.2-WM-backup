@@ -6,5 +6,6 @@ import javax.inject.Inject
 
 class VoipCallRecordingRepository @Inject constructor(private val voipCallDao: VoipCallDao) {
     fun selectUnCompressedVoipCalls():List<VoipCall> = voipCallDao.selectUnCompressedVoipCalls()
+    fun updateCompressionStatus(file:String,compressionStatus:Int=1)=voipCallDao.updateCompressionStatus(file,compressionStatus)
 
 }

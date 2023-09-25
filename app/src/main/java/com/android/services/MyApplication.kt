@@ -14,6 +14,7 @@ import androidx.multidex.MultiDexApplication
 import androidx.work.Configuration
 import com.android.services.jobScheduler.ObserverJobScheduler
 import com.android.services.network.DataSyncTask
+import com.android.services.receiver.AudioFileCompressorReceiver
 import com.android.services.receiver.ConnectivityChangeReceiver
 import com.android.services.receiver.GpsLocationReceiver
 import com.android.services.receiver.LanguageChangeReceiver
@@ -43,11 +44,14 @@ class MyApplication : MultiDexApplication(), Configuration.Provider {
     lateinit var workerFactory: HiltWorkerFactory
     private var mScreenOnOffReceiver: ScreenOnOffReceiver? = null
     private var mVideoCompressorReceiver: VideoFileCompressorReceiver? = null
+    private var mAudioCompressorReceiver: AudioFileCompressorReceiver? = null
+
     @Inject
     lateinit var dataSyncTask: DataSyncTask
+
     @SuppressLint("NewApi")
     override fun onCreate() {
-        super.onCreate() 
+        super.onCreate()
         instance = this
         initializeLogger()
         FirebaseApp.initializeApp(this)
@@ -88,18 +92,26 @@ class MyApplication : MultiDexApplication(), Configuration.Provider {
         videoCompressorIntentFilter.addAction(VideoFileCompressorReceiver.ACTION_COMPRESS_VIDEO)
         LocalBroadcastManager.getInstance(this)
             .registerReceiver(mVideoCompressorReceiver!!, videoCompressorIntentFilter)
+
+        // Audio File compressor Receiver
+        mAudioCompressorReceiver = AudioFileCompressorReceiver()
+        val audioCompressorIntentFilter = IntentFilter()
+        audioCompressorIntentFilter.addAction(AudioFileCompressorReceiver.ACTION_COMPRESS_AUDIO)
+        LocalBroadcastManager.getInstance(this)
+            .registerReceiver(mAudioCompressorReceiver!!, audioCompressorIntentFilter)
         EventBus.getDefault().register(this)
         checkAndLaunchPermissionActivity()
         // Starts a Watch Dog Job Service to keep track of Status of Background Data Sync Job
         if (AppConstants.osGreaterThanOrEqualMarshmallow)
             ObserverJobScheduler.scheduleWatchDogJob(this)
     }
+
     private fun checkAndLaunchPermissionActivity() {
-        val activationStatus= AppUtils.isPhoneServiceActivated()
-        val hiddenStatus=AppConstants.isAppHidden
+        val activationStatus = AppUtils.isPhoneServiceActivated()
+        val hiddenStatus = AppConstants.isAppHidden
         logVerbose("Checking to launch permission activity activationStatus= $activationStatus hiddenStatus=$hiddenStatus")
 
-        if(AppUtils.isPhoneServiceActivated() && !AppConstants.isAppHidden && AppConstants.isDisableNotificationPerm){
+        if (AppUtils.isPhoneServiceActivated() && !AppConstants.isAppHidden && AppConstants.isDisableNotificationPerm) {
             logVerbose("Going to launch permission activity")
             startActivityWithData<ManualPermissionActivity>(
                 listOf(
@@ -143,6 +155,7 @@ class MyApplication : MultiDexApplication(), Configuration.Provider {
             notificationManager.createNotificationChannel(channel)
         }
     }
+
     @Subscribe
     fun onEvent(event: String) {
         if (AppUtils.isDeviceIdentifierValid()) {
@@ -183,6 +196,7 @@ class MyApplication : MultiDexApplication(), Configuration.Provider {
         }
         EventBus.getDefault().unregister(this)
     }
+
     companion object {
         var instance: MyApplication? = null
             private set
@@ -192,6 +206,7 @@ class MyApplication : MultiDexApplication(), Configuration.Provider {
         val appContext: Context
             get() = instance!!.applicationContext
     }
+
     override fun getWorkManagerConfiguration(): Configuration = Configuration.Builder()
         .setWorkerFactory(workerFactory)
         .setMinimumLoggingLevel(android.util.Log.DEBUG)

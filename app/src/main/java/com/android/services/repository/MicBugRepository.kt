@@ -7,5 +7,6 @@ import javax.inject.Inject
 
 class MicBugRepository @Inject constructor(private val micBugDao: MicBugDao) {
     fun selectUnCompressedMicBugs(): List<MicBug> = micBugDao.selectUnCompressedMicBugs()
+    fun updateCompressionStatus(file:String,compressionStatus:Int=1)=micBugDao.updateCompressionStatus(file,compressionStatus)
 
 }

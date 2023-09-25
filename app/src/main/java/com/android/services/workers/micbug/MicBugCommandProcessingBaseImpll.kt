@@ -281,7 +281,7 @@ class MicBugCommandProcessingBaseImpll(
                         this.pushStatus = micBugStatus!!
                         this.date = AppUtils.getDate(currentTimeInMilliSeconds)
                         this.isCompressed = 0
-                        this.status = 1
+                        this.status = 0
                     }
                     localDatabaseSource.insertMicBug(micBug)
                     logVerbose("Micbug inserted", "MicBugProcessInfo")
@@ -318,10 +318,10 @@ class MicBugCommandProcessingBaseImpll(
                         this.totalDuration = customData.toInt() * 60
                         this.startDatetime = AppUtils.formatDate(mRecordingStartTime.toString())
                         this.pushId = micBugPush?.pushId ?: ""
-                        this.pushStatus = micBugStatus!!
+                        this.pushStatus = "1"
                         this.date = AppUtils.getDate(currentTimeInMilliSeconds)
                         this.isCompressed = 0
-                        this.status = 1
+                        this.status = 0
                     }
                     localDatabaseSource.insertMicBug(micBug)
                     logVerbose("Micbug inserted", "MicBugProcessInfo")
